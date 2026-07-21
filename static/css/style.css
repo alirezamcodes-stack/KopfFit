@@ -1,3 +1,36 @@
-* {
-    box-sizing: border-box;
+:root {
+    /* Brand colors */
+    --color-primary: #43a653;
+    --color-primary-hover: #378b46;
+    --color-primary-light: #e9f6e9;
+
+    /* Text colors */
+    --color-heading: #10365c;
+    --color-text: #1f2937;
+    --color-text-light: #6b7280;
+
+    /* Background colors */
+    --color-background: #f3f8fc;
+    --color-surface: #ffffff;
+    --color-border: #d9e1e7;
+
+    /* Feedback colors */
+    --color-success: #43a653;
+    --color-success-light: #edf8ed;
+
+    --color-danger: #e55750;
+    --color-danger-light: #fff0ef;
+
+    /* Other */
+    --color-white: #ffffff;
+}
+
+
+
+h1 {
+    color :var(--color-heading);
+}
+
+body {
+    background-color: var(--color-background);
 }

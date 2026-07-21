@@ -1,7 +1,16 @@
-.venv/
+# Virtual environment
 venv/
-__pycache__/
-*.pyc
-*.db
-.env
+
+# IDE
 .idea/
+
+# Python
+__pycache__/
+*.py[cod]
+
+# Local database and configuration
+instance/
+*.db
+
+# Environment variables
+.env
