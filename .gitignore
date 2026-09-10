@@ -14,3 +14,6 @@ instance/
 
 # Environment variables
 .env
+
+# Node / Prettier
+node_modules/
