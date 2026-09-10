@@ -1,20 +1,436 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>KopfFit</title>
-</head>
-<body>
-    <h1>KopfFit</h1>
-    <p>Gemeinsam denken, erinnern und Spass haben.</p>
-    <a href="{{ url_for('categories') }}"><button>Quiz starten</button> </a><br>
-    <button>Hilfe</button>
-    <button>Kontrast</button>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+    <title>KopfFit – Kleine Spiele für Kopf und Alltag</title>
+
+    <meta
+        name="description"
+        content="Entdecke kleine Gedächtnisspiele, wecke Erinnerungen und lass deinen Garten wachsen. Mit KopfFit spielst du ganz in deinem Tempo."
+    >
+
+    <link
+        rel="icon"
+        href="{{ url_for('static', filename='images/brand/favicon.ico') }}"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+    >
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+</head>
+
+<body>
+
+<header class="main-header">
+    <nav>
+
+        <a href="/" class="logo">
+            <img
+                src="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+                alt=""
+            >
+            <span>KopfFit</span>
+        </a>
+
+        <ul>
+            <li>
+                <a href="#funktioniert">So funktioniert's</a>
+            </li>
+
+            <li>
+                <a href="#spiele">Spiele</a>
+            </li>
+
+            <li>
+                <a href="#garten">Dein Garten</a>
+            </li>
+        </ul>
+
+        <a href="/login">
+            Anmelden
+        </a>
+
+        <button type="button">
+            Aa Textgröße
+        </button>
+
+    </nav>
+</header>
+
+
+<main>
+
+    <!-- HERO -->
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="hero-eyebrow">
+                KLEINE SPIELE FÜR KOPF UND ALLTAG
+            </p>
+
+            <h1>
+                Spiel dich durch<br>
+                einen schönen Tag.
+            </h1>
+
+            <p class="hero-description">
+                Entdecke kurze Spiele, wecke Erinnerungen
+                und lass deinen Garten wachsen.
+                Ganz in deinem Tempo.
+            </p>
+
+            <div class="hero-actions">
+
+                <a href="/categories" class="hero-primary-action">
+                    Ohne Anmeldung ausprobieren
+                    <span aria-hidden="true">→</span>
+                </a>
+
+                <a href="/register" class="hero-secondary-action">
+                    Konto erstellen
+                </a>
+
+            </div>
+
+
+            <div class="hero-features">
+
+                <div class="hero-feature">
+
+                    <span class="hero-feature-icon" aria-hidden="true">
+                        ⏱
+                    </span>
+
+                    <div>
+                        <h3>Ohne Zeitdruck</h3>
+                        <p>Spiele, wann es dir passt.</p>
+                    </div>
+
+                </div>
+
+
+                <div class="hero-feature">
+
+                    <span class="hero-feature-icon" aria-hidden="true">
+                        🌱
+                    </span>
+
+                    <div>
+                        <h3>In deinem Tempo</h3>
+                        <p>Du bestimmst das Tempo.</p>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- SO EINFACH GEHT'S -->
+    <section id="funktioniert" class="funktioniert">
+
+        <h2>So einfach geht's</h2>
+
+        <div>
+
+            <article>
+                <span>01</span>
+                <span aria-hidden="true">icon1</span>
+
+                <h3>Spiel auswählen</h3>
+
+                <p>
+                    Finde etwas, das dir Freude macht.
+                </p>
+            </article>
+
+
+            <article>
+                <span>02</span>
+                <span aria-hidden="true">icon2</span>
+
+                <h3>In Ruhe spielen</h3>
+
+                <p>
+                    Du bestimmst das Tempo.
+                </p>
+            </article>
+
+
+            <article>
+                <span>03</span>
+                <span aria-hidden="true">icon3</span>
+
+                <h3>Garten wachsen lassen</h3>
+
+                <p>
+                    Jede gespielte Runde zählt.
+                </p>
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- GAMES -->
+    <section id="spiele" class="spiele">
+
+        <h2>Vier Spiele. Viel Abwechslung.</h2>
+
+        <div>
+
+            <!-- Merk-Mix -->
+            <article>
+
+                <img
+                    src="{{ url_for('static', filename='images/games/merk-mix.png') }}"
+                    alt="Tasse und Schlüssel für das Spiel Merk-Mix"
+                >
+
+                <h3>Merk-Mix</h3>
+
+                <p>
+                    Dinge merken und wiedererkennen.
+                </p>
+
+                <a href="#">
+                    Spiel ausprobieren →
+                </a>
+
+            </article>
+
+
+            <!-- Augenblick -->
+            <article>
+
+                <img
+                    src="{{ url_for('static', filename='images/games/augenblick.png') }}"
+                    alt="Tulpe und Sonnenblume für das Spiel Augenblick"
+                >
+
+                <h3>Augenblick</h3>
+
+                <p>
+                    Genau hinschauen und Unterschiede finden.
+                </p>
+
+                <a href="#">
+                    Spiel ausprobieren →
+                </a>
+
+            </article>
+
+
+            <!-- Kartenpaare -->
+            <article>
+
+                <img
+                    src="{{ url_for('static', filename='images/games/kartenpaare.png') }}"
+                    alt="Zwei Spielkarten für das Spiel Kartenpaare"
+                >
+
+                <h3>Kartenpaare</h3>
+
+                <p>
+                    Verdeckte Paare entdecken.
+                </p>
+
+                <a href="#">
+                    Spiel ausprobieren →
+                </a>
+
+            </article>
+
+
+            <!-- Zeitreise -->
+            <article>
+
+                <img
+                    src="{{ url_for('static', filename='images/games/zeitreise.png') }}"
+                    alt="Altes Radio für das Spiel Zeitreise"
+                >
+
+                <h3>Zeitreise</h3>
+
+                <p>
+                    Vertrautes entdecken und Erinnerungen wecken.
+                </p>
+
+                <a href="#">
+                    Spiel ausprobieren →
+                </a>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- GARDEN -->
+    <section id="garten" class="garden-section">
+
+        <div class="garden-content">
+
+            <h2>
+                Dein Garten wächst mit dir.
+            </h2>
+
+            <p>
+                Für jede abgeschlossene Runde wächst ein Stück Grün.
+                Es zählt, dass du mitmachst.
+            </p>
+
+            <a href="#">
+                Jetzt eine Runde spielen →
+            </a>
+
+        </div>
+
+
+        <div class="garden-visual">
+
+            <img
+                src="#"
+                alt="Pflanze in einem Blumentopf"
+            >
+
+        </div>
+
+    </section>
+
+
+    <!-- ACCESSIBILITY -->
+    <section class="accessibility-section">
+
+        <h2>
+            Einfach. Klar. In deinem Tempo.
+        </h2>
+
+        <div class="accessibility-features">
+
+            <article class="accessibility-feature">
+
+                <span aria-hidden="true">
+                    Aa
+                </span>
+
+                <div>
+                    <h3>Gut lesbare Texte</h3>
+
+                    <p>
+                        Ruhige Gestaltung und klare Schrift.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="accessibility-feature">
+
+                <span aria-hidden="true">
+                    🔊
+                </span>
+
+                <div>
+                    <h3>Fragen vorlesen lassen</h3>
+
+                    <p>
+                        Auf Wunsch werden Aufgaben vorgelesen.
+                    </p>
+                </div>
+
+            </article>
+
+
+            <article class="accessibility-feature">
+
+                <span aria-hidden="true">
+                    ⏸
+                </span>
+
+                <div>
+                    <h3>Pausieren, wann du möchtest</h3>
+
+                    <p>
+                        Mach jederzeit eine Pause und spiel später weiter.
+                    </p>
+                </div>
+
+            </article>
+
+        </div>
+
+    </section>
+
+
+    <!-- FINAL CTA -->
+    <section class="final-cta">
+
+        <h2>
+            Lust auf eine kleine Kopfrunde?
+        </h2>
+
+        <p>
+            Starte direkt – ohne Anmeldung.
+        </p>
+
+        <a href="#">
+            Jetzt ausprobieren →
+        </a>
+
+    </section>
+
+</main>
+
+
+<!-- FOOTER -->
+<footer class="site-footer">
+
+    <a href="/" class="logo">
+
+        <img
+            src="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+            alt=""
+        >
+
+        <span>KopfFit</span>
+
+    </a>
+
+
+    <nav aria-label="Footer Navigation">
+
+        <ul>
+            <li>
+                <a href="#">Datenschutz</a>
+            </li>
+
+            <li>
+                <a href="#">Impressum</a>
+            </li>
+
+            <li>
+                <a href="#">Kontakt</a>
+            </li>
+        </ul>
+
+    </nav>
+
+</footer>
 
 </body>
- <footer>
-    &copy; {{ current_year }} Alireza. All rights reserved.
-</footer>
 </html>

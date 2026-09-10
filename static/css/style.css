@@ -1,56 +1,104 @@
 :root {
-  /* Brand colors */
-  --color-primary: #315b38;
-  --color-primary-hover: #25472b;
-  --color-primary-light: #e8efe3;
+    /* Brand */
+    --color-primary: #315b38;
+    --color-primary-hover: #25472b;
+    --color-primary-light: #e8efe3;
 
-  /* Text colors */
-  --color-heading: #173b57;
-  --color-text: #1f2933;
-  --color-text-light: #53616c;
+    /* Text */
+    --color-heading: #173b57;
+    --color-text: #1f2933;
+    --color-text-light: #53616c;
 
-  /* Background colors */
-  --color-background: #fbf7ef;
-  --color-surface: #ffffff;
-  --color-border: #d5d9cf;
+    /* Background */
+    --color-background: #fbf7ef;
+    --color-surface: #ffffff;
+    --color-border: #d5d9cf;
 
-  /* Feedback colors */
-  --color-success: #3e6b57;
-  --color-success-light: #e8f1ec;
+    /* Accent */
+    --color-accent: #a84f16;
 
-  --color-danger: #b33d35;
-  --color-danger-light: #fff0ef;
+    /* Feedback */
+    --color-success: #3e6b57;
+    --color-danger: #b33d35;
 
-  /* Accent */
-  --color-accent: #a84f16;
-  --color-accent-light: #f8e5d8;
-
-  /* Other */
-  --color-white: #ffffff;
-  --color-focus: #173b57;
+    /* Utility */
+    --color-white: #ffffff;
+    --color-focus: #173b57;
 }
+
+
+/* Reset */
+
+*,
+*::before,
+*::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+html {
+    font-size: 62.5%;
+}
+
 
 body {
-  background-color: var(--color-background);
-  color: var(--color-text);
+    min-height: 100vh;
+
+    font-family: system-ui, "Segoe UI", Arial, sans-serif;
+    font-size: 2rem;
+    line-height: 1.6;
+
+    background-color: var(--color-background);
+    color: var(--color-text);
 }
+
+
+/* Typography */
 
 h1,
 h2,
 h3 {
-  color: var(--color-heading);
+    color: var(--color-heading);
+    line-height: 1.15;
 }
 
-.button-primary {
-  background-color: var(--color-primary);
-  color: var(--color-white);
+h1 {
+    font-size: clamp(4.4rem, 5vw, 6.8rem);
 }
 
-.button-primary:hover {
-  background-color: var(--color-primary-hover);
+h2 {
+    font-size: clamp(3.6rem, 4vw, 4.8rem);
 }
+
+h3 {
+    font-size: 2.8rem;
+}
+
+
+/* Media */
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+
+/* Form elements */
+
+button,
+input,
+select,
+textarea {
+    font: inherit;
+}
+
+
+/* Accessibility */
 
 :focus-visible {
-  outline: 3px solid var(--color-focus);
-  outline-offset: 4px;
+    outline: 3px solid var(--color-focus);
+    outline-offset: 4px;
 }
