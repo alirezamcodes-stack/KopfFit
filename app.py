@@ -1,4 +1,6 @@
 from flask import Flask, render_template
+from datetime import datetime
+import requests
 
 
 app = Flask(__name__)
@@ -22,6 +24,13 @@ def quiz():
 @app.route("/result")
 def result():
     return render_template("result.html")
+
+
+
+
+@app.context_processor
+def inject_current_year():
+    return {"current_year": datetime.now().year}
 
 
 if __name__ == "__main__":
