@@ -22,11 +22,12 @@ Quizlogik oder Datenspeicherung ist noch nicht implementiert.
 
 ### Templates
 
-- `templates/home.html`
-- `templates/spiele.html`
+- `templates/base.html` als gemeinsame HTML-Basis
+- `templates/app_base.html` als gemeinsames Layout für interne Seiten
+- `templates/home.html` auf Basis von `base.html`
+- `templates/spiele.html` auf Basis von `app_base.html`
 - `templates/quiz.html`
 - `templates/result.html`
-- vorbereitetes, derzeit noch nicht verwendetes `templates/base.html`
 
 ### Landingpage
 
@@ -102,7 +103,6 @@ Quizlogik oder Datenspeicherung ist noch nicht implementiert.
   Platzhalter.
 - Der Textgrößen-Button hat noch keine JavaScript-Funktion.
 - `static/js/main.js` ist leer und wird von `home.html` nicht geladen.
-- Die Templates verwenden `base.html` noch nicht.
 - Es gibt noch keine Media Queries für mobile Layouts.
 - Namenseingabe, zufällige Fragen, Antwortprüfung, Timer und Punkteberechnung
   sind nicht implementiert.
@@ -120,6 +120,7 @@ KopfFit/
 ├── app.py
 ├── templates/
 │   ├── base.html
+│   ├── app_base.html
 │   ├── spiele.html
 │   ├── home.html
 │   ├── quiz.html
