@@ -358,3 +358,56 @@ textarea {
     width: 4.4rem;
     height: 4.4rem;
 }
+
+
+/* App Layout -------------------------------- */
+.app-layout {
+    display: flex;
+    min-height: 100vh;
+}
+
+.sidebar {
+    width: 26rem;
+    padding: 3.2rem 2.4rem;
+    background-color: var(--color-surface);
+}
+
+.app-main {
+    flex: 1;
+}
+
+.sidebar-logo {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+
+    text-decoration: none;
+    color: var(--color-heading);
+
+    font-size: 2.6rem;
+    font-weight: 700;
+}
+
+.sidebar-logo img {
+    width: 5rem;
+    height: 5rem;
+    object-fit: contain;
+}
+
+.sidebar-nav a {
+    text-decoration: none;
+    color: var(--color-heading);
+}
+
+.sidebar-nav ul {
+    list-style: none;
+    gap: 3rem;
+
+}
+
+.games-list{
+     display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.4rem;
+
+}

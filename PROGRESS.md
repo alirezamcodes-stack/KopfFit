@@ -72,6 +72,12 @@ Quizlogik oder Datenspeicherung ist noch nicht implementiert.
 - [x] Farben über gemeinsame CSS-Variablen verwendet
 - [x] Klassen und IDs für die neuen Bereiche ergänzt
 - [x] BrowserSync für schnelle Aktualisierungen eingerichtet
+- [x] Gemeinsames `app_base.html` für interne Seiten erstellt
+- [x] Wiederverwendbare Sidebar mit Navigation hinzugefügt
+- [x] `app_content`-Block für Seiteninhalte ergänzt
+- [x] Grundlayout mit Flexbox aufgebaut
+- [x] `spiele.html` an `app_base.html` angebunden
+- [x] Garden/Garten-Namenskonvention vereinheitlicht
 
 ## Verifizierte Prüfungen
 

@@ -1,25 +1,115 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
-    <title>Spiele | KopfFit</title>
-</head>
-<body>
+{% extends "app_base.html" %}
 
-    <h1>Wähle eine Kategorie</h1>
-    <p>Was interessiert dich heute?</p>
+{% block title %}
+Spiele – KopfFit
+{% endblock %}
 
-    <a href="{{ url_for('quiz') }}"><button>Allgemeinwissen</button></a>
-    <button>Musik</button>
-    <button>Geschichte</button>
-    <button>Natur</button>
-    <button>Alltag</button>
-    <button>Erinnerungen</button>
+{% block app_content %}
 
-    <br><br>
+<section class="games-page">
 
-    <a href="/">Zurück</a>
+    <header class="games-header">
 
-</body>
-</html>
+        <h1>Spiele</h1>
+
+        <p>
+            Worauf hast du heute Lust?
+        </p>
+
+    </header>
+
+
+    <div class="games-list">
+
+        <article class="game-card">
+
+            <span class="game-number">01</span>
+
+            <h2>Merk-Mix</h2>
+
+            <p>
+                Erinnern. Kombinieren. Dranbleiben.
+            </p>
+
+            <p>
+                Merke dir Alltagsgegenstände
+                und finde sie später wieder.
+            </p>
+
+            <a href="#">
+                Spielen
+            </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+            <span class="game-number">02</span>
+
+            <h2>Augenblick</h2>
+
+            <p>
+                Genau hinschauen. Unterschiede entdecken.
+            </p>
+
+            <p>
+                Schau dir Bilder aufmerksam an
+                und finde kleine Veränderungen.
+            </p>
+
+            <a href="#">
+                Spielen
+            </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+            <span class="game-number">03</span>
+
+            <h2>Kartenpaare</h2>
+
+            <p>
+                Aufdecken. Merken. Paare finden.
+            </p>
+
+            <p>
+                Merke dir die Position der Karten
+                und finde die passenden Paare.
+            </p>
+
+            <a href="#">
+                Spielen
+            </a>
+
+        </article>
+
+
+        <article class="game-card">
+
+            <span class="game-number">04</span>
+
+            <h2>Zeitreise</h2>
+
+            <p>
+                Erinnern. Entdecken. Zurückblicken.
+            </p>
+
+            <p>
+                Entdecke vertraute Dinge aus früheren Zeiten
+                und wecke schöne Erinnerungen.
+            </p>
+
+            <a href="#">
+                Spielen
+            </a>
+
+        </article>
+
+    </div>
+
+</section>
+
+{% endblock %}

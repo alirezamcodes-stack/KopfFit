@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<div class="app-layout">
+
+    <aside class="sidebar">
+
+        <a href="/" class="sidebar-logo">
+            <img
+                    src="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+                    alt=""
+            >
+            <span>KopfFit</span>
+        </a>
+
+
+        <nav class="sidebar-nav">
+
+            <ul>
+                <li><a href="/">Start</a></li>
+                <li><a href="{{ url_for('spiele') }}">Spiele</a></li>
+                <li><a href="{{ url_for('home', _anchor='garden') }}">Garten</a></li>
+                <li><a href="#">Fortschritt</a></li>
+                <li><a href="#">Einstellungen</a></li>
+            </ul>
+
+        </nav>
+
+
+        <div class="sidebar-tools">
+
+            <button type="button" class="sidebar-text-size">
+                Aa Textgröße
+            </button>
+
+            <a href="#" class="sidebar-help">
+                Hilfe
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <main class="app-main">
+
+        {% block app_content %}
+        {% endblock %}
+
+    </main>
+
+</div>
+
+{% endblock %}
