@@ -102,3 +102,259 @@ textarea {
     outline: 3px solid var(--color-focus);
     outline-offset: 4px;
 }
+
+
+/* Navigation------------------------------------------ */
+.main-header nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 1.6rem 3.2rem;
+    background-color: var(--color-background);
+    border-bottom: 1px solid var(--color-border);
+
+}
+
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 3rem;
+
+}
+
+.nav-links a {
+    text-decoration: none;
+    color: var(--color-heading);
+}
+
+.nav-links a:hover {
+    color: var(--color-primary);
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    text-decoration: none;
+    color: var(--color-heading);
+}
+
+
+.logo img {
+    width: 5.2rem;
+    height: 5.2rem;
+    object-fit: contain;
+}
+
+.nav-actions {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+    color: var(--color-heading);
+
+
+}
+
+.nav-actions a {
+    text-decoration: none;
+}
+
+
+.login-link {
+    text-decoration: none;
+    color: var(--color-primary);
+    border: 2px solid var(--color-primary);
+    padding: 1rem 2rem;
+}
+
+.login-link:hover {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+}
+
+
+.text-size-button {
+    text-decoration: none;
+    color: var(--color-heading);
+    border: none;
+    background: transparent;
+    padding: 1rem 1.5rem;
+    cursor: pointer;
+}
+
+.text-size-button:hover {
+    color: var(--color-primary);
+}
+
+
+/* Hero------------------------------------------ */
+
+.hero {
+    padding: 8rem 0;
+}
+
+.hero-content {
+    max-width: 140rem;
+    margin: 0 auto;
+    padding: 0 3.2rem;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    gap: 6rem;
+}
+
+.hero-eyebrow {
+    color: var(--color-primary);
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: 0.08rem;
+    margin-bottom: 1.6rem;
+}
+
+.hero-image {
+    width: 100%;
+    max-width: 55rem;
+    height: auto;
+}
+
+/*  SO EINFACH GEHT'S------------------------------------------ */
+
+
+.funktioniert h2 {
+    margin-bottom: 4rem;
+
+}
+
+.funktioniert {
+    padding: 8rem 3.2rem;
+    max-width: 140rem;
+    margin: 0 auto;
+
+
+}
+
+.funktioniert-grid {
+
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+
+}
+
+.funktioniert-grid article {
+    padding: 3.2rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1.2rem;
+
+}
+
+
+/*  spiele------------------------------------------ */
+
+.spiele h2 {
+    margin-bottom: 4rem;
+}
+
+
+.spiele {
+    padding: 8rem 3.2rem;
+    max-width: 140rem;
+    margin: 0 auto;
+
+}
+
+.spiele-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2.4rem;
+
+
+}
+
+.spiele-grid article {
+    padding: 3.2rem;
+    background-color: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: 1.2rem;
+
+}
+
+
+/*  garden------------------------------------------ */
+
+
+.garden-section {
+    padding: 8rem 3.2rem;
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
+
+/*  ACCESSIBILITY------------------------------------------ */
+.accessibility-section {
+    padding: 8rem 3.2rem;
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
+.accessibility-section h2 {
+    margin-bottom: 4rem;
+
+
+}
+
+.accessibility-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+
+}
+
+
+/*  FINAL CTA------------------------------------------ */
+
+.final-cta {
+    padding: 8rem 3.2rem;
+    max-width: 140rem;
+    margin: 0 auto;
+}
+
+/*  footer------------------------------------------ */
+
+
+.site-footer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 4rem 3.2rem;
+    background-color: var(--color-background);
+}
+
+.site-footer nav ul {
+
+    display: flex;
+    list-style: none;
+    gap: 2rem;
+
+}
+
+.site-footer nav a {
+    text-decoration: none;
+    font-size: 1.8rem;
+    font-weight: 500;
+    color: var(--color-heading);
+}
+
+.site-footer .logo {
+    font-size: 2.4rem;
+    font-weight: 700;
+}
+
+.site-footer .logo img {
+    width: 4.4rem;
+    height: 4.4rem;
+}

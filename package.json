@@ -1,5 +1,12 @@
 {
+  "scripts": {
+    "start": "concurrently --kill-others --names FLASK,BROWSER \"npm:server\" \"npm:browser-sync\"",
+    "server": "\".venv\\Scripts\\python.exe\" -u app.py",
+    "browser-sync": "browser-sync start --config bs-config.js"
+  },
   "devDependencies": {
+    "browser-sync": "^3.0.4",
+    "concurrently": "^10.0.5",
     "prettier": "3.9.6"
   }
 }

@@ -7,23 +7,23 @@
     <title>KopfFit – Kleine Spiele für Kopf und Alltag</title>
 
     <meta
-        name="description"
-        content="Entdecke kleine Gedächtnisspiele, wecke Erinnerungen und lass deinen Garten wachsen. Mit KopfFit spielst du ganz in deinem Tempo."
+            name="description"
+            content="Entdecke kleine Gedächtnisspiele, wecke Erinnerungen und lass deinen Garten wachsen. Mit KopfFit spielst du ganz in deinem Tempo."
     >
 
     <link
-        rel="icon"
-        href="{{ url_for('static', filename='images/brand/favicon.ico') }}"
+            rel="icon"
+            href="{{ url_for('static', filename='images/brand/favicon.ico') }}"
     >
 
     <link
-        rel="apple-touch-icon"
-        href="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+            rel="apple-touch-icon"
+            href="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
     >
 
     <link
-        rel="stylesheet"
-        href="{{ url_for('static', filename='css/style.css') }}"
+            rel="stylesheet"
+            href="{{ url_for('static', filename='css/style.css') }}"
     >
 </head>
 
@@ -34,13 +34,13 @@
 
         <a href="/" class="logo">
             <img
-                src="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
-                alt=""
+                    src="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+                    alt=""
             >
-            <span>KopfFit</span>
+            <span class="main-menu">KopfFit</span>
         </a>
 
-        <ul>
+        <ul class="nav-links">
             <li>
                 <a href="#funktioniert">So funktioniert's</a>
             </li>
@@ -50,18 +50,19 @@
             </li>
 
             <li>
-                <a href="#garten">Dein Garten</a>
+                <a href="#garden">Dein Garten</a>
             </li>
         </ul>
+        <div class="nav-actions">
 
-        <a href="/login">
-            Anmelden
-        </a>
+            <a href="/login" class="login-link">
+                Anmelden
+            </a>
 
-        <button type="button">
-            Aa Textgröße
-        </button>
-
+            <button type="button" class="text-size-button">
+                Aa Textgröße
+            </button>
+        </div>
     </nav>
 </header>
 
@@ -69,9 +70,12 @@
 <main>
 
     <!-- HERO -->
-    <section class="hero">
+    <!-- HERO -->
+<section class="hero">
 
-        <div class="hero-content">
+    <div class="hero-content">
+
+        <div class="hero-text">
 
             <p class="hero-eyebrow">
                 KLEINE SPIELE FÜR KOPF UND ALLTAG
@@ -135,7 +139,20 @@
 
         </div>
 
-    </section>
+
+        <div class="hero-visual">
+
+            <img
+                    class="hero-image"
+                    src="{{ url_for('static', filename='images/landingpage/hero.webp') }}"
+                    alt=""
+            >
+
+        </div>
+
+    </div>
+
+</section>
 
 
     <!-- SO EINFACH GEHT'S -->
@@ -143,7 +160,7 @@
 
         <h2>So einfach geht's</h2>
 
-        <div>
+        <div class="funktioniert-grid">
 
             <article>
                 <span>01</span>
@@ -190,14 +207,14 @@
 
         <h2>Vier Spiele. Viel Abwechslung.</h2>
 
-        <div>
+        <div class="spiele-grid">
 
             <!-- Merk-Mix -->
             <article>
 
                 <img
-                    src="{{ url_for('static', filename='images/games/merk-mix.png') }}"
-                    alt="Tasse und Schlüssel für das Spiel Merk-Mix"
+                        src="{{ url_for('static', filename='images/games/merk-mix.png') }}"
+                        alt="Tasse und Schlüssel für das Spiel Merk-Mix"
                 >
 
                 <h3>Merk-Mix</h3>
@@ -217,8 +234,8 @@
             <article>
 
                 <img
-                    src="{{ url_for('static', filename='images/games/augenblick.png') }}"
-                    alt="Tulpe und Sonnenblume für das Spiel Augenblick"
+                        src="{{ url_for('static', filename='images/games/augenblick.png') }}"
+                        alt="Tulpe und Sonnenblume für das Spiel Augenblick"
                 >
 
                 <h3>Augenblick</h3>
@@ -238,8 +255,8 @@
             <article>
 
                 <img
-                    src="{{ url_for('static', filename='images/games/kartenpaare.png') }}"
-                    alt="Zwei Spielkarten für das Spiel Kartenpaare"
+                        src="{{ url_for('static', filename='images/games/kartenpaare.png') }}"
+                        alt="Zwei Spielkarten für das Spiel Kartenpaare"
                 >
 
                 <h3>Kartenpaare</h3>
@@ -259,8 +276,8 @@
             <article>
 
                 <img
-                    src="{{ url_for('static', filename='images/games/zeitreise.png') }}"
-                    alt="Altes Radio für das Spiel Zeitreise"
+                        src="{{ url_for('static', filename='images/games/zeitreise.png') }}"
+                        alt="Altes Radio für das Spiel Zeitreise"
                 >
 
                 <h3>Zeitreise</h3>
@@ -281,7 +298,7 @@
 
 
     <!-- GARDEN -->
-    <section id="garten" class="garden-section">
+    <section id="garden" class="garden-section">
 
         <div class="garden-content">
 
@@ -304,8 +321,8 @@
         <div class="garden-visual">
 
             <img
-                src="#"
-                alt="Pflanze in einem Blumentopf"
+                    src="#"
+                    alt="Pflanze in einem Blumentopf"
             >
 
         </div>
@@ -320,7 +337,7 @@
             Einfach. Klar. In deinem Tempo.
         </h2>
 
-        <div class="accessibility-features">
+        <div class="accessibility-grid">
 
             <article class="accessibility-feature">
 
@@ -403,8 +420,8 @@
     <a href="/" class="logo">
 
         <img
-            src="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
-            alt=""
+                src="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+                alt=""
         >
 
         <span>KopfFit</span>
@@ -412,7 +429,7 @@
     </a>
 
 
-    <nav aria-label="Footer Navigation">
+    <nav aria-label="Footer-Navigation">
 
         <ul>
             <li>

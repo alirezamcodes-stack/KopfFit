@@ -46,20 +46,30 @@ Den ausführlichen Stand, das Product Backlog und die Sprintplanung enthält
 | Backend | Python, Flask | eingerichtet |
 | Frontend | HTML, CSS, JavaScript | eingerichtet |
 | Datenbank | SQLite | geplant |
-| Formatierung | Prettier | eingerichtet |
+| Entwicklungswerkzeuge | BrowserSync, Prettier | eingerichtet |
 
 ## Projekt lokal starten
 
-Voraussetzungen sind Python 3 und `pip`.
+Voraussetzungen sind Python 3, Node.js, `pip` und `npm`.
 
 ```powershell
-python -m venv venv
-venv\Scripts\Activate.ps1
+python -m venv .venv
+.venv\Scripts\Activate.ps1
 pip install -r requirements.txt
-python app.py
+npm.cmd install
+npm.cmd start
 ```
 
-Anschließend ist die Anwendung unter `http://127.0.0.1:5000` erreichbar.
+`npm.cmd start` startet Flask und BrowserSync gemeinsam. BrowserSync öffnet die
+Anwendung automatisch unter `http://localhost:3000`. Falls dieser Port bereits
+belegt ist, wird der nächste freie Port verwendet, zum Beispiel `3001`.
+Änderungen an Templates, CSS oder JavaScript werden mit kurzer Verzögerung
+übernommen; CSS wird dabei ohne vollständiges Neuladen der Seite aktualisiert.
+Flask selbst läuft im Hintergrund unter `http://127.0.0.1:5000`.
+
+Unter Windows wird `npm.cmd` verwendet, damit der Start auch funktioniert,
+wenn PowerShell die Ausführung von `npm.ps1` blockiert. Beide Prozesse können
+gemeinsam mit `Strg+C` beendet werden.
 
 ## Vorhandene Routen
 
@@ -87,6 +97,7 @@ KopfFit/
 │   └── images/
 ├── requirements.txt
 ├── package.json
+├── bs-config.js
 ├── PROGRESS.md
 └── ideen.md
 ```
