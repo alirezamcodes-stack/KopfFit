@@ -1,17 +1,49 @@
 <!DOCTYPE html>
 <html lang="de">
+
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %}KopfFit{% endblock %}</title>
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        {% block title %}KopfFit{% endblock %}
+    </title>
+
+    <meta
+        name="description"
+        content="{% block description %}KopfFit – Kleine Spiele für Kopf und Alltag{% endblock %}"
+    >
+
+    <link
+        rel="icon"
+        href="{{ url_for('static', filename='images/brand/favicon.ico') }}"
+    >
+
+    <link
+        rel="apple-touch-icon"
+        href="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
+    >
 
     <link
         rel="stylesheet"
         href="{{ url_for('static', filename='css/style.css') }}"
     >
+
+    {% block extra_css %}{% endblock %}
 </head>
 
 <body>
+
     {% block content %}
     {% endblock %}
+
+    {% block scripts %}
+    {% endblock %}
+
 </body>
+
 </html>

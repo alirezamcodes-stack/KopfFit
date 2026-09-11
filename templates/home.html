@@ -1,35 +1,20 @@
-<!DOCTYPE html>
-<html lang="de">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+{% extends "base.html" %}
 
-    <title>KopfFit – Kleine Spiele für Kopf und Alltag</title>
 
-    <meta
-            name="description"
-            content="Entdecke kleine Gedächtnisspiele, wecke Erinnerungen und lass deinen Garten wachsen. Mit KopfFit spielst du ganz in deinem Tempo."
-    >
+{% block title %}
+KopfFit – Kleine Spiele für Kopf und Alltag
+{% endblock %}
 
-    <link
-            rel="icon"
-            href="{{ url_for('static', filename='images/brand/favicon.ico') }}"
-    >
 
-    <link
-            rel="apple-touch-icon"
-            href="{{ url_for('static', filename='images/brand/apple-touch-icon.png') }}"
-    >
+{% block description %}
+Entdecke kleine Gedächtnisspiele, wecke Erinnerungen und lass deinen Garten wachsen. Mit KopfFit spielst du ganz in deinem Tempo.
+{% endblock %}
 
-    <link
-            rel="stylesheet"
-            href="{{ url_for('static', filename='css/style.css') }}"
-    >
-</head>
 
-<body>
+{% block content %}
 
 <header class="main-header">
+
     <nav>
 
         <a href="/" class="logo">
@@ -40,161 +25,212 @@
             <span class="main-menu">KopfFit</span>
         </a>
 
+
         <ul class="nav-links">
+
             <li>
-                <a href="#funktioniert">So funktioniert's</a>
+                <a href="#funktioniert">
+                    So funktioniert's
+                </a>
             </li>
 
             <li>
-                <a href="#spiele">Spiele</a>
+                <a href="#spiele">
+                    Spiele
+                </a>
             </li>
 
             <li>
-                <a href="#garden">Dein Garten</a>
+                <a href="#garden">
+                    Dein Garten
+                </a>
             </li>
+
         </ul>
+
+
         <div class="nav-actions">
 
             <a href="/login" class="login-link">
                 Anmelden
             </a>
 
-            <button type="button" class="text-size-button">
+            <button
+                    type="button"
+                    class="text-size-button"
+            >
                 Aa Textgröße
             </button>
+
         </div>
+
     </nav>
+
 </header>
 
 
 <main>
 
     <!-- HERO -->
-    <!-- HERO -->
-<section class="hero">
+    <section class="hero">
 
-    <div class="hero-content">
+        <div class="hero-content">
 
-        <div class="hero-text">
 
-            <p class="hero-eyebrow">
-                KLEINE SPIELE FÜR KOPF UND ALLTAG
-            </p>
+            <div class="hero-text">
 
-            <h1>
-                Spiel dich durch<br>
-                einen schönen Tag.
-            </h1>
+                <p class="hero-eyebrow">
+                    KLEINE SPIELE FÜR KOPF UND ALLTAG
+                </p>
 
-            <p class="hero-description">
-                Entdecke kurze Spiele, wecke Erinnerungen
-                und lass deinen Garten wachsen.
-                Ganz in deinem Tempo.
-            </p>
 
-            <div class="hero-actions">
+                <h1>
+                    Spiel dich durch<br>
+                    einen schönen Tag.
+                </h1>
 
-                <a href="/categories" class="hero-primary-action">
-                    Ohne Anmeldung ausprobieren
-                    <span aria-hidden="true">→</span>
-                </a>
 
-                <a href="/register" class="hero-secondary-action">
-                    Konto erstellen
-                </a>
+                <p class="hero-description">
+                    Entdecke kurze Spiele, wecke Erinnerungen
+                    und lass deinen Garten wachsen.
+                    Ganz in deinem Tempo.
+                </p>
+
+
+                <div class="hero-actions">
+
+                    <a
+                            href="{{ url_for('spiele') }}"
+                            class="hero-primary-action"
+                    >
+                        Ohne Anmeldung ausprobieren
+                        <span aria-hidden="true">→</span>
+                    </a>
+
+                    <a
+                            href="/register"
+                            class="hero-secondary-action"
+                    >
+                        Konto erstellen
+                    </a>
+
+                </div>
+
+
+                <div class="hero-features">
+
+                    <div class="hero-feature">
+
+                        <span
+                                class="hero-feature-icon"
+                                aria-hidden="true"
+                        >
+                            ⏱
+                        </span>
+
+                        <div>
+                            <h3>Ohne Zeitdruck</h3>
+                            <p>Spiele, wann es dir passt.</p>
+                        </div>
+
+                    </div>
+
+
+                    <div class="hero-feature">
+
+                        <span
+                                class="hero-feature-icon"
+                                aria-hidden="true"
+                        >
+                            🌱
+                        </span>
+
+                        <div>
+                            <h3>In deinem Tempo</h3>
+                            <p>Du bestimmst das Tempo.</p>
+                        </div>
+
+                    </div>
+
+                </div>
 
             </div>
 
 
-            <div class="hero-features">
+            <div class="hero-visual">
 
-                <div class="hero-feature">
-
-                    <span class="hero-feature-icon" aria-hidden="true">
-                        ⏱
-                    </span>
-
-                    <div>
-                        <h3>Ohne Zeitdruck</h3>
-                        <p>Spiele, wann es dir passt.</p>
-                    </div>
-
-                </div>
-
-
-                <div class="hero-feature">
-
-                    <span class="hero-feature-icon" aria-hidden="true">
-                        🌱
-                    </span>
-
-                    <div>
-                        <h3>In deinem Tempo</h3>
-                        <p>Du bestimmst das Tempo.</p>
-                    </div>
-
-                </div>
+                <img
+                        class="hero-image"
+                        src="{{ url_for('static', filename='images/landingpage/hero.webp') }}"
+                        alt=""
+                >
 
             </div>
 
         </div>
 
-
-        <div class="hero-visual">
-
-            <img
-                    class="hero-image"
-                    src="{{ url_for('static', filename='images/landingpage/hero.webp') }}"
-                    alt=""
-            >
-
-        </div>
-
-    </div>
-
-</section>
+    </section>
 
 
     <!-- SO EINFACH GEHT'S -->
-    <section id="funktioniert" class="funktioniert">
+    <section
+            id="funktioniert"
+            class="funktioniert"
+    >
 
         <h2>So einfach geht's</h2>
+
 
         <div class="funktioniert-grid">
 
             <article>
+
                 <span>01</span>
-                <span aria-hidden="true">icon1</span>
+
+                <span aria-hidden="true">
+                    icon1
+                </span>
 
                 <h3>Spiel auswählen</h3>
 
                 <p>
                     Finde etwas, das dir Freude macht.
                 </p>
+
             </article>
 
 
             <article>
+
                 <span>02</span>
-                <span aria-hidden="true">icon2</span>
+
+                <span aria-hidden="true">
+                    icon2
+                </span>
 
                 <h3>In Ruhe spielen</h3>
 
                 <p>
                     Du bestimmst das Tempo.
                 </p>
+
             </article>
 
 
             <article>
+
                 <span>03</span>
-                <span aria-hidden="true">icon3</span>
+
+                <span aria-hidden="true">
+                    icon3
+                </span>
 
                 <h3>Garten wachsen lassen</h3>
 
                 <p>
                     Jede gespielte Runde zählt.
                 </p>
+
             </article>
 
         </div>
@@ -203,9 +239,15 @@
 
 
     <!-- GAMES -->
-    <section id="spiele" class="spiele">
+    <section
+            id="spiele"
+            class="spiele"
+    >
 
-        <h2>Vier Spiele. Viel Abwechslung.</h2>
+        <h2>
+            Vier Spiele. Viel Abwechslung.
+        </h2>
+
 
         <div class="spiele-grid">
 
@@ -298,7 +340,10 @@
 
 
     <!-- GARDEN -->
-    <section id="garden" class="garden-section">
+    <section
+            id="garden"
+            class="garden-section"
+    >
 
         <div class="garden-content">
 
@@ -321,7 +366,7 @@
         <div class="garden-visual">
 
             <img
-                    src="#"
+                    src="{{ url_for('static', filename='images/landingpage/garden.webp') }}"
                     alt="Pflanze in einem Blumentopf"
             >
 
@@ -337,6 +382,7 @@
             Einfach. Klar. In deinem Tempo.
         </h2>
 
+
         <div class="accessibility-grid">
 
             <article class="accessibility-feature">
@@ -346,11 +392,15 @@
                 </span>
 
                 <div>
-                    <h3>Gut lesbare Texte</h3>
+
+                    <h3>
+                        Gut lesbare Texte
+                    </h3>
 
                     <p>
                         Ruhige Gestaltung und klare Schrift.
                     </p>
+
                 </div>
 
             </article>
@@ -363,11 +413,15 @@
                 </span>
 
                 <div>
-                    <h3>Fragen vorlesen lassen</h3>
+
+                    <h3>
+                        Fragen vorlesen lassen
+                    </h3>
 
                     <p>
                         Auf Wunsch werden Aufgaben vorgelesen.
                     </p>
+
                 </div>
 
             </article>
@@ -380,11 +434,15 @@
                 </span>
 
                 <div>
-                    <h3>Pausieren, wann du möchtest</h3>
+
+                    <h3>
+                        Pausieren, wann du möchtest
+                    </h3>
 
                     <p>
                         Mach jederzeit eine Pause und spiel später weiter.
                     </p>
+
                 </div>
 
             </article>
@@ -424,7 +482,9 @@
                 alt=""
         >
 
-        <span>KopfFit</span>
+        <span>
+            KopfFit
+        </span>
 
     </a>
 
@@ -432,22 +492,29 @@
     <nav aria-label="Footer-Navigation">
 
         <ul>
+
             <li>
-                <a href="#">Datenschutz</a>
+                <a href="#">
+                    Datenschutz
+                </a>
             </li>
 
             <li>
-                <a href="#">Impressum</a>
+                <a href="#">
+                    Impressum
+                </a>
             </li>
 
             <li>
-                <a href="#">Kontakt</a>
+                <a href="#">
+                    Kontakt
+                </a>
             </li>
+
         </ul>
 
     </nav>
 
 </footer>
 
-</body>
-</html>
+{% endblock %}

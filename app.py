@@ -11,9 +11,9 @@ def home():
     return render_template("home.html")
 
 
-@app.route("/categories")
-def categories():
-    return render_template("categories.html")
+@app.route("/spiele")
+def spiele():
+    return render_template("spiele.html")
 
 
 @app.route("/quiz")

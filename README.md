@@ -76,7 +76,7 @@ gemeinsam mit `Strg+C` beendet werden.
 | Route | Inhalt |
 | --- | --- |
 | `/` | Landingpage |
-| `/categories` | Kategorieauswahl |
+| `/spiele` | Spiel- und Kategorieauswahl |
 | `/quiz` | Quizseite mit Beispielaufgabe |
 | `/result` | statische Ergebnisseite |
 
@@ -88,7 +88,7 @@ KopfFit/
 ├── templates/
 │   ├── base.html
 │   ├── home.html
-│   ├── categories.html
+│   ├── spiele.html
 │   ├── quiz.html
 │   └── result.html
 ├── static/

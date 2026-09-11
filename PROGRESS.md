@@ -15,7 +15,7 @@ Quizlogik oder Datenspeicherung ist noch nicht implementiert.
 
 - Flask-Anwendung in `app.py`
 - Route `/` für die Landingpage
-- Route `/categories` für die Kategorieauswahl
+- Route `/spiele` für die Spiel- und Kategorieauswahl
 - Route `/quiz` für eine statische Beispielfrage
 - Route `/result` für ein statisches Beispielergebnis
 - Context Processor für das aktuelle Jahr
@@ -23,7 +23,7 @@ Quizlogik oder Datenspeicherung ist noch nicht implementiert.
 ### Templates
 
 - `templates/home.html`
-- `templates/categories.html`
+- `templates/spiele.html`
 - `templates/quiz.html`
 - `templates/result.html`
 - vorbereitetes, derzeit noch nicht verwendetes `templates/base.html`
@@ -75,7 +75,7 @@ Quizlogik oder Datenspeicherung ist noch nicht implementiert.
 
 ## Verifizierte Prüfungen
 
-- `/`, `/categories`, `/quiz` und `/result` liefern HTTP-Status `200`
+- `/`, `/spiele`, `/quiz` und `/result` liefern HTTP-Status `200`
 - `app.py` kann mit dem PyCharm-Interpreter importiert werden
 - Flask `3.1.3` und Requests `2.32.5` entsprechen `requirements.txt`
 - `pip check` meldet keine defekten Python-Abhängigkeiten
@@ -114,7 +114,7 @@ KopfFit/
 ├── app.py
 ├── templates/
 │   ├── base.html
-│   ├── categories.html
+│   ├── spiele.html
 │   ├── home.html
 │   ├── quiz.html
 │   └── result.html
