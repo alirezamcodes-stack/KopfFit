@@ -1,115 +1,63 @@
-{% extends "app_base.html" %}
-
-{% block title %}
-Spiele – KopfFit
-{% endblock %}
-
+{% extends "app_base.html" %} {% block title %}Spiele – KopfFit{% endblock %}
 {% block app_content %}
-
-<section class="games-page">
-
+  <section class="games-page">
     <header class="games-header">
+      <h1>Spiele</h1>
 
-        <h1>Spiele</h1>
-
-        <p>
-            Worauf hast du heute Lust?
-        </p>
-
+      <p>Worauf hast du heute Lust?</p>
     </header>
 
-
     <div class="games-list">
+      <article class="game-card">
+        <span class="game-number">01</span>
 
-        <article class="game-card">
+        <h2>Merk-Mix</h2>
 
-            <span class="game-number">01</span>
+        <p>Erinnern. Kombinieren. Dranbleiben.</p>
 
-            <h2>Merk-Mix</h2>
+        <p>Merke dir Alltagsgegenstände und finde sie später wieder.</p>
 
-            <p>
-                Erinnern. Kombinieren. Dranbleiben.
-            </p>
+        <a href="{{ url_for('merk_mix') }}"> Spielen </a>
+      </article>
 
-            <p>
-                Merke dir Alltagsgegenstände
-                und finde sie später wieder.
-            </p>
+      <article class="game-card">
+        <span class="game-number">02</span>
 
-            <a href="#">
-                Spielen
-            </a>
+        <h2>Augenblick</h2>
 
-        </article>
+        <p>Genau hinschauen. Unterschiede entdecken.</p>
 
+        <p>Schau dir Bilder aufmerksam an und finde kleine Veränderungen.</p>
 
-        <article class="game-card">
+        <a href="#"> Spielen </a>
+      </article>
 
-            <span class="game-number">02</span>
+      <article class="game-card">
+        <span class="game-number">03</span>
 
-            <h2>Augenblick</h2>
+        <h2>Kartenpaare</h2>
 
-            <p>
-                Genau hinschauen. Unterschiede entdecken.
-            </p>
+        <p>Aufdecken. Merken. Paare finden.</p>
 
-            <p>
-                Schau dir Bilder aufmerksam an
-                und finde kleine Veränderungen.
-            </p>
+        <p>Merke dir die Position der Karten und finde die passenden Paare.</p>
 
-            <a href="#">
-                Spielen
-            </a>
+        <a href="{{ url_for('kartenpaare') }}"> Spielen </a>
+      </article>
 
-        </article>
+      <article class="game-card">
+        <span class="game-number">04</span>
 
+        <h2>Zeitreise</h2>
 
-        <article class="game-card">
+        <p>Erinnern. Entdecken. Zurückblicken.</p>
 
-            <span class="game-number">03</span>
+        <p>
+          Entdecke vertraute Dinge aus früheren Zeiten und wecke schöne
+          Erinnerungen.
+        </p>
 
-            <h2>Kartenpaare</h2>
-
-            <p>
-                Aufdecken. Merken. Paare finden.
-            </p>
-
-            <p>
-                Merke dir die Position der Karten
-                und finde die passenden Paare.
-            </p>
-
-            <a href="#">
-                Spielen
-            </a>
-
-        </article>
-
-
-        <article class="game-card">
-
-            <span class="game-number">04</span>
-
-            <h2>Zeitreise</h2>
-
-            <p>
-                Erinnern. Entdecken. Zurückblicken.
-            </p>
-
-            <p>
-                Entdecke vertraute Dinge aus früheren Zeiten
-                und wecke schöne Erinnerungen.
-            </p>
-
-            <a href="#">
-                Spielen
-            </a>
-
-        </article>
-
+        <a href="#"> Spielen </a>
+      </article>
     </div>
-
-</section>
-
+  </section>
 {% endblock %}

@@ -1,7 +1,52 @@
 {% extends "app_base.html" %}
+
 {% block title %}
   Merk-Mix – KopfFit
 {% endblock %}
 
 {% block app_content %}
+  <section class="game-page">
+    <header class="game-header">
+      <a href="{{ url_for('spiele') }}">Zurück zu den Spielen</a>
+
+      <h1>Merke dir diese Dinge.</h1>
+
+      <p>
+        Schau dir die Gegenstände genau an. Du wirst sie dir gleich wieder ins
+        Gedächtnis rufen. Nimm dir einen Moment Zeit.
+      </p>
+    </header>
+
+    <div class="game-controls">
+      <button type="button">Vorlesen</button>
+    </div>
+
+    <section class="memory-items">
+      <div class="memory-item">
+        <div class="memory-item-image"></div>
+        <p class="memory-item-name">sample1</p>
+      </div>
+
+      <div class="memory-item">
+        <div class="memory-item-image"></div>
+        <p class="memory-item-name">sample2</p>
+      </div>
+
+      <div class="memory-item">
+        <div class="memory-item-image"></div>
+        <p class="memory-item-name">sample3</p>
+      </div>
+
+      <div class="memory-item">
+        <div class="memory-item-image"></div>
+        <p class="memory-item-name">sample4</p>
+      </div>
+    </section>
+
+    <div class="game-actions">
+      <button type="button" class="ready-button">Ich bin bereit</button>
+
+      <button type="button" class="pause-button">Pause</button>
+    </div>
+  </section>
 {% endblock %}

@@ -2,7 +2,6 @@ from flask import Flask, render_template
 from datetime import datetime
 import requests
 
-
 app = Flask(__name__)
 
 
@@ -13,19 +12,17 @@ def home():
 
 @app.route("/spiele")
 def spiele():
-    return render_template("spiele.html")
+    return (render_template("spiele.html"))
 
 
-@app.route("/quiz")
-def quiz():
-    return render_template("quiz.html")
+@app.route("/spiele/kartenpaare")
+def kartenpaare():
+    return render_template("kartenpaare.html")
 
 
-@app.route("/result")
-def result():
-    return render_template("result.html")
-
-
+@app.route("/spiele/merk_mix")
+def merk_mix():
+    return render_template("merk_mix.html")
 
 
 @app.context_processor

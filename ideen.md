@@ -1,82 +1,77 @@
 # Produktideen – KopfFit
 
-Dieses Dokument sammelt Erweiterungen für die Zeit nach dem grundlegenden MVP.
-Die aktuelle Umsetzung und verbindliche Planung stehen in
-[PROGRESS.md](PROGRESS.md).
+Diese Datei sammelt nur Funktionen, die im aktuellen Projekt durch sichtbare
+Platzhalter, Texte, Bilder oder Referenzentwürfe bereits als Richtung angelegt,
+aber noch nicht vollständig implementiert sind. Der nachweislich vorhandene
+Stand steht in [PROGRESS.md](PROGRESS.md).
 
-## Gruppenquiz-Modus
-
-Zwei Teams spielen gemeinsam und wählen abwechselnd eine Kategorie sowie eine
-Punktzahl. Die Punktzahl entspricht der Schwierigkeit:
-
-- 10 Punkte: einfach
-- 30 Punkte: mittel
-- 50 Punkte: schwer
-
-Bei einer richtigen Antwort erhält das aktive Team die Punkte. Beantwortete
-Fragen werden deutlich markiert und können nicht erneut ausgewählt werden. Eine
-große, jederzeit sichtbare Punkteanzeige zeigt den Spielstand beider Teams.
-
-Der Modus eignet sich besonders für Alten- und Pflegeheime, weil er Gespräch,
-Teamarbeit und gemeinsame Aktivität fördert. Er wird nach dem Einzelspieler-MVP
-umgesetzt, damit zuerst Fragenverwaltung, Antwortprüfung und Punkteberechnung
-stabil funktionieren.
-
-## Vier Spielideen
+## Spiele vervollständigen
 
 ### Merk-Mix
 
-Alltagsgegenstände kurz ansehen, merken und anschließend wiedererkennen. Die
-Anzahl der Gegenstände kann an den Schwierigkeitsgrad angepasst werden.
-
-### Augenblick
-
-Zwei ähnliche Bilder vergleichen und Unterschiede entdecken. Große Motive und
-deutliche Kontraste erleichtern die Bedienung.
+Die vorhandene statische Merk-Mix-Seite kann zu einer Spielrunde ausgebaut
+werden: Alltagsgegenstände anzeigen, eine Merkphase beenden und die zuvor
+gesehenen Gegenstände wiedererkennen lassen. Die vier aktuellen
+`sample`-Einträge und leeren Bildflächen sind dabei durch echte Inhalte zu
+ersetzen.
 
 ### Kartenpaare
 
-Verdeckte Karten aufdecken und passende Bildpaare finden. Vertraute Motive wie
-Tiere, Pflanzen oder Alltagsgegenstände können Erinnerungen anregen.
+Das vorhandene Raster kann mit gemischten Bildpaaren, Aufdeckzuständen,
+Paarprüfung, Rückmeldung und einem Abschlusszustand ergänzt werden. Die zwölf
+aktuellen Schaltflächen enthalten noch keine Kartenmotive oder Spiellogik.
+
+### Augenblick
+
+Die in Landingpage, Spieleübersicht und Bildassets angelegte Idee kann eine
+eigene Seite erhalten, auf der ähnliche Bilder verglichen und Unterschiede
+gefunden werden.
 
 ### Zeitreise
 
-Fragen und Bilder aus verschiedenen Jahrzehnten nutzen, um vertraute Themen
-und persönliche Erinnerungen aufzugreifen.
+Die in Landingpage, Spieleübersicht und Bildassets angelegte Idee kann eine
+eigene Seite mit vertrauten Motiven oder Themen aus früheren Zeiten erhalten.
 
-## Persönlicher Garten
+## Persönlicher Garten und Fortschritt
 
-Für jede abgeschlossene Runde wächst der virtuelle Garten weiter. Der
-Fortschritt soll regelmäßiges Spielen sichtbar machen, ohne schlechte
-Ergebnisse zu bestrafen. Entscheidend ist die Teilnahme, nicht nur die
-erreichte Punktzahl.
+Die Landingpage beschreibt einen Garten, der mit abgeschlossenen Runden
+wächst. Geplant sind dafür eine funktionierende Gartenansicht, nachvollziehbare
+Fortschrittsregeln und eine Verknüpfung mit tatsächlich abgeschlossenen
+Spielrunden. Teilnahme soll laut vorhandenem UI-Text im Vordergrund stehen.
 
-Mögliche Ausbaustufen:
+Die Sidebar nennt zusätzlich „Fortschritt“. Eine eigene Ansicht oder
+Datengrundlage existiert noch nicht.
 
-- neue Pflanzen nach abgeschlossenen Runden
-- Gartenansicht mit persönlichem Fortschritt
-- kleine Belohnungen für regelmäßige Teilnahme
-- keine Verlustmechanik und kein Leistungsdruck
+## Bedienung und Unterstützung
 
-## Barrierefreiheit und Unterstützung
+Folgende Funktionen sind bereits als Schaltflächen oder Texte sichtbar, aber
+noch nicht umgesetzt:
 
-- umschaltbare Textgröße
-- hoher Kontrast und gut erkennbare Fokusmarkierungen
-- Vorlesefunktion für Fragen und Antworten
-- große Klickflächen mit eindeutigen Beschriftungen
-- Pausenfunktion ohne Verlust des Spielstands
-- ruhige Rückmeldungen ohne hektische Animationen
+- Textgröße umschalten
+- Spielinhalte vorlesen
+- eine Runde pausieren und später fortsetzen
+- verständliche Rückmeldungen während und nach einer Runde
+- responsive Layouts für kleinere Bildschirme
 
-## Benutzerkonten und Gastmodus
+Die vorhandene `:focus-visible`-Markierung und die große Grundschrift sind
+bereits umgesetzt und deshalb keine offenen Ideen.
 
-Die Anwendung kann später einen Gastmodus sowie optionale Benutzerkonten
-erhalten. Ein Konto ermöglicht dauerhaften Fortschritt, persönliche
-Einstellungen, Gartenansicht und Spielergebnisse. Das Spielen ohne Anmeldung
-soll weiterhin möglich bleiben.
+## Konten, Gastmodus und Einstellungen
 
-## Weitere Ansichten
+Die Landingpage nennt „Anmelden“, „Konto erstellen“ und Spielen ohne
+Anmeldung. Die Sidebar nennt „Einstellungen“; Referenzbilder zeigen Anmeldung,
+Registrierung, Passwortansicht und Gastmodus. Mögliche spätere Funktionen sind:
 
-Die vorhandenen Referenzbilder unter `static/images/Ideas/` zeigen mögliche
-Entwürfe für Landingpage, Dashboard, Spielebibliothek, Spielsitzung,
-Spielvarianten, Abschlussseite, Garten, Fortschritt, Einstellungen, Hilfe,
-Anmeldung, Registrierung und Gastmodus.
+- optionales Benutzerkonto
+- Spielen als Gast
+- Speichern von Garten- und Spielfortschritt
+- persönliche Einstellungen
+
+Routen, Formulare, Authentifizierung und Speicherung dafür fehlen vollständig.
+
+## Weitere Seiten aus dem aktuellen UI
+
+Für die bereits sichtbaren Platzhalter „Hilfe“, „Datenschutz“, „Impressum“ und
+„Kontakt“ können eigene Inhalte und Routen ergänzt werden. Die Referenzbilder
+unter `static/images/Ideas/` dienen dabei nur als Entwurfsgrundlage; sie sind
+keine implementierten Ansichten.

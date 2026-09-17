@@ -1,5 +1,7 @@
-# Virtual environment
+# Virtual environments
+.venv/
 venv/
+env/
 
 # IDE
 .idea/
@@ -7,13 +9,28 @@ venv/
 # Python
 __pycache__/
 *.py[cod]
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+.coverage
+htmlcov/
 
 # Local database and configuration
 instance/
 *.db
+*.sqlite
+*.sqlite3
 
 # Environment variables
 .env
+.env.*
+!.env.example
 
 # Node / Prettier
 node_modules/
+npm-debug.log*
+
+# Logs and operating-system files
+*.log
+.DS_Store
+Thumbs.db

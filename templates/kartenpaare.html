@@ -1,10 +1,44 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "app_base.html" %}
+{% block title %}
+  Kartenpaare – KopfFit
+{% endblock %}
+{% block app_content %}
+  <section class="game-page">
+    <header class="game-header">
+      <a href="{{ url_for('spiele') }}">Zurück zu den Spielen</a>
+      <h1>Finde die passenden Paare.</h1>
+      <p>Decke die Karten auf und finde zwei gleiche Bilder.</p>
+    </header>
+
+    <div class="game-controls">
+      <button type="button">Vorlesen</button>
+      <button type="button">Pause</button>
+    </div>
+    <div class="game-content">
+      <section class="game-instructions">
+        <h2>Spielanleitung</h2>
+
+        <ol>
+          <li>Karte anklicken</li>
+          <li>Zweite Karte wählen</li>
+          <li>Gleiches Paar finden</li>
+        </ol>
+      </section>
+      <section class="memory-board">
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+        <button type="button" class="memory-card">Karte</button>
+      </section>
+    </div>
+    <div class="game-feedback" role="status" aria-live="polite"></div>
+  </section>
+{% endblock %}

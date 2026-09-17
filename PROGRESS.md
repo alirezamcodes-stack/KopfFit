@@ -1,117 +1,114 @@
 # Projektfortschritt – KopfFit
 
-**Stand: 11. September 2026**
+**Bestandsaufnahme: 17. September 2026**
 
-## Aktueller Stand
+Dieses Dokument beschreibt ausschließlich den aktuell im Projekt vorhandenen
+Stand. KopfFit ist ein Flask-basierter Frontend-Prototyp. Alle vier definierten
+Routen lassen sich rendern; die beiden Spielseiten enthalten noch keine
+interaktive Spiellogik.
 
-KopfFit ist aktuell ein Frontend-Prototyp mit Flask. Die Landingpage ist
-strukturell aufgebaut und gestaltet. Kategorie-, Quiz- und Ergebnisseite sind
-vorhanden, verwenden aber noch statische Beispielinhalte. Eine vollständige
-Quizlogik oder Datenspeicherung ist noch nicht implementiert.
+## Implementiert
 
-## Nachweislich vorhanden
+### Flask und Routen
 
-### Flask-Anwendung
+- `app.py` erstellt die Flask-Anwendung.
+- `/` rendert `templates/home.html`.
+- `/spiele` rendert `templates/spiele.html`.
+- `/spiele/kartenpaare` rendert `templates/kartenpaare.html`.
+- `/spiele/merk_mix` rendert `templates/merk_mix.html`.
+- Ein Context Processor stellt `current_year` bereit. Kein aktives Template
+  gibt den Wert derzeit aus.
+- Der direkte Start von `app.py` aktiviert den Flask-Debug-Modus.
 
-- Flask-Anwendung in `app.py`
-- Route `/` für die Landingpage
-- Route `/spiele` für die Spiel- und Kategorieauswahl
-- Route `/quiz` für eine statische Beispielfrage
-- Route `/result` für ein statisches Beispielergebnis
-- Context Processor für das aktuelle Jahr
+### Templates und sichtbare Begriffe
 
-### Templates
+- `base.html` definiert Dokumentgrundlage, Seitentitel, Meta-Beschreibung,
+  Favicon, Apple-Touch-Icon, Stylesheet und Template-Blöcke.
+- `app_base.html` stellt für interne Seiten die Navigation „Start“, „Spiele“,
+  „Garten“, „Fortschritt“, „Einstellungen“, „Textgröße“ und „Hilfe“ bereit.
+- Die Landingpage verwendet die Bereiche „So funktioniert's“, „Spiele“, „Dein
+  Garten“ und „Einfach. Klar. In deinem Tempo.“
+- Die Spieleübersicht nennt „Merk-Mix“, „Augenblick“, „Kartenpaare“ und
+  „Zeitreise“.
+- Merk-Mix und Kartenpaare besitzen jeweils eine eigene statische Seite und
+  einen funktionierenden Rücklink zur Spieleübersicht.
 
-- `templates/base.html` als gemeinsame HTML-Basis
-- `templates/app_base.html` als gemeinsames Layout für interne Seiten
-- `templates/home.html` auf Basis von `base.html`
-- `templates/spiele.html` auf Basis von `app_base.html`
-- `templates/quiz.html`
-- `templates/result.html`
+### Styling und Assets
 
-### Landingpage
+- `static/css/style.css` enthält Reset, Grundtypografie, CSS-Farbvariablen,
+  Fokusmarkierung sowie Layouts für Landingpage, Sidebar, Spieleübersicht,
+  Kartenpaare und Merk-Mix.
+- `static/images/brand/` enthält Favicon, Icons, Symbol und horizontales Logo.
+- `static/images/landingpage/` enthält Hero-, Garten- und Spielbilder als PNG
+  und teilweise als WebP.
+- `static/images/Ideas/` enthält 17 Referenzbilder von `00-landing.png` bis
+  `16-guest.png`; diese Dateien sind Entwürfe, keine implementierten Seiten.
 
-- Navigation mit Logo, Sprunglinks, Anmelde-Link und Textgrößen-Button
-- Hero-Bereich mit zweispaltigem Grid und eingebundenem Hero-Bild
-- Bereiche „So einfach geht’s“, Spiele, Garten und Barrierefreiheit
-- abschließender Call-to-Action und Footer
-- Grid-Strukturen für Erklärung, Spiele und Barrierefreiheit
-- gemeinsame maximale Inhaltsbreite und wiederkehrende Abstände
-- CSS-Variablen für Marken-, Text-, Hintergrund- und Statusfarben
-- Grundtypografie mit flexiblen Überschriftengrößen über `clamp()`
-- sichtbare Fokusmarkierung über `:focus-visible`
+### Entwicklungs- und Setup-Dateien
 
-### Bilder und Markenassets
+- `requirements.txt` enthält die beiden von `app.py` importierten
+  Drittanbieterpakete Flask 3.1.3 und Requests 2.32.5.
+- `package.json` und `package-lock.json` definieren BrowserSync, Concurrently,
+  Prettier und das Jinja-Template-Plugin als Entwicklungsabhängigkeiten.
+- `npm.cmd start` startet über Concurrently die lokale `.venv` und
+  BrowserSync.
+- `bs-config.js` nutzt Flask unter `http://127.0.0.1:5000` als Proxy,
+  beobachtet Templates, CSS und JavaScript und bevorzugt Port 3000.
+- `.prettierrc` verwendet für HTML-Dateien den Parser `jinja-template`.
 
-- Logo, Favicon, App-Icons und Apple-Touch-Icon unter
-  `static/images/brand/`
-- Referenzentwürfe unter `static/images/Ideas/`
-- PNG- und WebP-Bilder für Hero, Garten und vier Spiele unter
-  `static/images/landingpage/`
-- das Hero-WebP ist korrekt in `home.html` eingebunden
+## Derzeit in Arbeit oder nur statisch vorbereitet
 
-### Entwicklungsumgebung
-
-- Python Virtual Environment unter `.venv/`
-- Python-Abhängigkeiten in `requirements.txt`
-- Prettier als Entwicklungsabhängigkeit
-- BrowserSync und Concurrently als Entwicklungsabhängigkeiten
-- gemeinsamer Start von Flask und BrowserSync über `npm.cmd start`
-- BrowserSync-Proxy auf Flask unter `http://127.0.0.1:5000`
-- automatische Aktualisierung für Templates, CSS und JavaScript
-- BrowserSync startet bevorzugt auf Port `3000` und öffnet den Browser
-
-## Heute umgesetzt – 11. September 2026
-
-- [x] Grundstruktur der Landingpage weiter aufgebaut
-- [x] Navigation und Footer gestaltet
-- [x] Hero-Bereich als zweispaltiges Grid umgesetzt
-- [x] Hero-Bild eingebunden und ausgerichtet
-- [x] „So einfach geht’s“-Bereich mit Grid und Karten strukturiert
-- [x] Spiele-, Garten- und Barrierefreiheitsbereiche vorbereitet
-- [x] Wiederkehrende Container-Breiten und Abstände eingesetzt
-- [x] Farben über gemeinsame CSS-Variablen verwendet
-- [x] Klassen und IDs für die neuen Bereiche ergänzt
-- [x] BrowserSync für schnelle Aktualisierungen eingerichtet
-- [x] Gemeinsames `app_base.html` für interne Seiten erstellt
-- [x] Wiederverwendbare Sidebar mit Navigation hinzugefügt
-- [x] `app_content`-Block für Seiteninhalte ergänzt
-- [x] Grundlayout mit Flexbox aufgebaut
-- [x] `spiele.html` an `app_base.html` angebunden
-- [x] Garden/Garten-Namenskonvention vereinheitlicht
-
-## Verifizierte Prüfungen
-
-- `/`, `/spiele`, `/quiz` und `/result` liefern HTTP-Status `200`
-- `app.py` kann mit dem PyCharm-Interpreter importiert werden
-- Flask `3.1.3` und Requests `2.32.5` entsprechen `requirements.txt`
-- `pip check` meldet keine defekten Python-Abhängigkeiten
-- BrowserSync `3.0.4`, Concurrently `10.0.5` und Prettier `3.9.6` sind installiert
-- BrowserSync erreicht den Flask-Proxy und bindet seinen Live-Reload-Client ein
-- `git diff --check` meldet keine Whitespace-Fehler
-
-## Noch nicht umgesetzt oder fehlerhaft
-
-- Die vier Spielbilder in `home.html` verweisen noch auf den nicht vorhandenen
-  Ordner `static/images/games/`. Die vorhandenen Dateien liegen unter
+- Merk-Mix enthält vier leere Bildflächen mit den Platzhaltern `sample1` bis
+  `sample4`. „Vorlesen“, „Ich bin bereit“ und „Pause“ lösen nichts aus.
+- Kartenpaare enthält zwölf gleich beschriftete Karten und einen leeren
+  Feedbackbereich. Aufdecken, Mischen, Paarvergleich, Abschlusszustand,
+  Vorlesen und Pause sind nicht implementiert.
+- Augenblick und Zeitreise sind Karten in der Spieleübersicht, haben aber
+  weder eigene Templates noch Flask-Routen.
+- „Fortschritt“, „Einstellungen“ und „Hilfe“ in der Sidebar sind
+  Platzhalterlinks.
+- Die Landingpage verlinkt `/login` und `/register`, obwohl dafür keine Routen
+  existieren.
+- Die Spielkarten der Landingpage referenzieren den nicht vorhandenen Ordner
+  `static/images/games/`. Passende Bilddateien liegen stattdessen unter
   `static/images/landingpage/`.
-- Das Gartenbild ist vorhanden, wird in `home.html` aber noch mit `src="#"`
-  referenziert.
-- Die Links `/login` und `/register` besitzen noch keine Flask-Routen und liefern
-  deshalb HTTP-Status `404`.
-- Spiel-, Garten-, Call-to-Action- und Footer-Links mit `href="#"` sind noch
-  Platzhalter.
-- Der Textgrößen-Button hat noch keine JavaScript-Funktion.
-- `static/js/main.js` ist leer und wird von `home.html` nicht geladen.
-- Es gibt noch keine Media Queries für mobile Layouts.
-- Namenseingabe, zufällige Fragen, Antwortprüfung, Timer und Punkteberechnung
-  sind nicht implementiert.
-- Ergebnisse werden noch nicht dynamisch erzeugt oder in einer Datenbank
-  gespeichert.
-- Eine Bestenliste ist nicht implementiert.
-- Automatisierte Tests sind noch nicht vorhanden.
-- Prettier meldet noch Formatabweichungen in `bs-config.js`, `home.html`,
-  `style.css` und `README.md`.
+- Das vorhandene Gartenbild ist nicht eingebunden; das Template verwendet für
+  die Gartenillustration `src="#"`.
+- Weitere Spiel-, Garten-, Call-to-Action- und Footerlinks verwenden
+  `href="#"`.
+- Die sichtbaren Textgrößen-, Vorlesen- und Pause-Schaltflächen besitzen keine
+  JavaScript-Funktion.
+- `static/js/main.js` ist leer und wird in keinem Template über einen
+  `<script>`-Eintrag geladen.
+- Das Stylesheet enthält keine Media Queries. Die mehrspaltigen Layouts sind
+  daher noch nicht für kleine Ansichten angepasst.
+
+## Noch nicht implementiert
+
+- tatsächliche Spielrunden und Zustandsverwaltung
+- dynamische Gegenstände, Karteninhalte oder Aufgaben
+- Eingabe- und Antwortauswertung, Punkte oder Ergebnisse
+- Gartenfortschritt und dauerhafte Speicherung
+- Datenbank oder Datenmodelle
+- Anmeldung, Registrierung, Gastmodus oder Sitzungsverwaltung
+- Seiten für Fortschritt, Einstellungen, Hilfe, Datenschutz, Impressum und
+  Kontakt
+- funktionierende Textgrößen-, Vorlese- und Pausenoptionen
+- automatisierte Tests
+
+Weitere noch relevante Produktideen stehen in [ideen.md](ideen.md).
+
+## Verifiziert
+
+- Die Routen `/`, `/spiele`, `/spiele/kartenpaare` und `/spiele/merk_mix`
+  liefern mit dem Flask-Testclient HTTP 200.
+- Die im aktuellen Template verlinkten Pfade `/login` und `/register` liefern
+  HTTP 404, weil dafür noch keine Flask-Routen definiert sind.
+- Die konfigurierte Entwicklungsumgebung verwendet Python 3.13.3.
+- Flask 3.1.3 und Requests 2.32.5 sind installiert.
+- `pip check` meldet keine defekten Python-Abhängigkeiten.
+- Die direkten Node-Entwicklungsabhängigkeiten in `package.json` stimmen mit
+  `package-lock.json` überein.
 
 ## Aktuelle Projektstruktur
 
@@ -121,10 +118,10 @@ KopfFit/
 ├── templates/
 │   ├── base.html
 │   ├── app_base.html
-│   ├── spiele.html
 │   ├── home.html
-│   ├── quiz.html
-│   └── result.html
+│   ├── spiele.html
+│   ├── merk_mix.html
+│   └── kartenpaare.html
 ├── static/
 │   ├── css/style.css
 │   ├── js/main.js
@@ -132,6 +129,7 @@ KopfFit/
 │       ├── brand/
 │       ├── Ideas/
 │       └── landingpage/
+├── .prettierrc
 ├── bs-config.js
 ├── package.json
 ├── package-lock.json

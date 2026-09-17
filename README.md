@@ -1,84 +1,102 @@
 # KopfFit
 
-KopfFit ist eine seniorenfreundliche Quiz-Webanwendung für ältere Menschen
-sowie für den Einsatz in Alten- und Pflegeheimen. Kurze und verständliche
-Aufgaben sollen das Gedächtnis aktivieren, Erfolgserlebnisse schaffen und
-gemeinsame Aktivitäten unterstützen.
+KopfFit ist derzeit ein deutschsprachiger Frontend-Prototyp für kurze
+Gedächtnisspiele. Flask rendert eine Landingpage, eine Spieleübersicht und zwei
+statische Spielansichten. Die sichtbare Gestaltung setzt auf große Schrift,
+ruhige Farben, klare Bereiche und deutlich markierte Tastaturfokusse.
 
-## Projektziel
+Es gibt noch keine Spiellogik, Benutzerkonten, Datenbank oder dauerhafte
+Fortschrittsspeicherung. Schaltflächen und Texte zu Vorlesen, Pause,
+Textgröße, Garten und Konten zeigen die beabsichtigte Richtung, sind aber noch
+nicht funktional.
 
-Die Anwendung soll auch ohne technische Vorkenntnisse einfach bedienbar sein.
-Große, gut lesbare Texte, klare Schaltflächen, eine ruhige Gestaltung und ein
-Spielablauf ohne unnötigen Zeitdruck stehen deshalb im Mittelpunkt.
+## Aktueller Funktionsumfang
 
-## Geplantes MVP
+### Implementiert
 
-Die erste funktionsfähige Version umfasst:
+- Flask-Anwendung mit vier erreichbaren Seiten
+- gemeinsame Jinja-Basis `templates/base.html`
+- internes Seitenlayout mit Sidebar in `templates/app_base.html`
+- Landingpage mit den Bereichen „So funktioniert's“, „Spiele“, „Dein Garten“
+  und „Einfach. Klar. In deinem Tempo.“
+- Spieleübersicht mit Merk-Mix, Augenblick, Kartenpaare und Zeitreise
+- statische Ansichten für Merk-Mix und Kartenpaare
+- gemeinsames CSS-Farbsystem, Grundtypografie, Grid-Layouts und
+  `:focus-visible`-Markierung
+- Markenicons, Landingpage-Bilder und Referenzentwürfe
+- lokaler Entwicklungsstart mit Flask, BrowserSync und automatischem Neuladen
+- Prettier-Konfiguration für JavaScript, JSON und Jinja-Templates
 
-- Eingabe des Spielernamens
-- Auswahl einer Quizkategorie
-- zufällige Fragen mit jeweils vier Antwortmöglichkeiten
-- Zeitbegrenzung pro Frage
-- Prüfung der Antworten und Punkteberechnung
-- dynamische Ergebnisanzeige
-- Speicherung der Ergebnisse in SQLite
-- Bestenliste
-- Start einer neuen Runde oder Wechsel der Kategorie
-- responsives und seniorenfreundliches Design
+### In Arbeit
 
-Weiterführende Konzepte wie der Garten, Benutzerkonten und ein Gruppenquiz
-werden in [ideen.md](ideen.md) gesammelt.
+- Merk-Mix zeigt vier leere Beispielplätze (`sample1` bis `sample4`); die
+  Schaltflächen „Vorlesen“, „Ich bin bereit“ und „Pause“ haben keine Funktion.
+- Kartenpaare zeigt ein statisches Raster mit zwölf Schaltflächen; Karteninhalt,
+  Aufdecken, Paarprüfung, Feedback, Vorlesen und Pause fehlen.
+- Augenblick und Zeitreise erscheinen nur in der Spieleübersicht und besitzen
+  keine eigenen Routen.
+- Die Landingpage enthält mehrere Platzhalterlinks und noch nicht korrekt
+  eingebundene Bilder. Einzelheiten stehen in [PROGRESS.md](PROGRESS.md).
+- `static/js/main.js` ist leer und wird von keinem Template geladen.
+- Responsive Anpassungen über Media Queries fehlen.
 
-## Aktueller Stand
+### Geplant
 
-Die Flask-Grundstruktur sowie Seiten für Landingpage, Kategorieauswahl, Quiz
-und Ergebnis sind vorhanden. Die Landingpage besitzt bereits die geplante
-inhaltliche Struktur, ein Farbsystem und Markenassets. Die übrigen Seiten und
-der Spielablauf verwenden derzeit noch statische Beispielinhalte.
+Die im aktuellen UI und in den Referenzbildern erkennbaren Ausbauideen stehen
+in [ideen.md](ideen.md). Dort sind ausschließlich noch nicht umgesetzte oder
+nur als statische Oberfläche angedeutete Funktionen aufgeführt.
 
-Den ausführlichen Stand, das Product Backlog und die Sprintplanung enthält
-[PROGRESS.md](PROGRESS.md).
+## Routen
 
-## Technologien
+| Route                 | Endpoint      | Aktueller Inhalt                |
+| --------------------- | ------------- | ------------------------------- |
+| `/`                   | `home`        | Landingpage                     |
+| `/spiele`             | `spiele`      | Spieleübersicht                 |
+| `/spiele/kartenpaare` | `kartenpaare` | statischer Kartenpaare-Prototyp |
+| `/spiele/merk_mix`    | `merk_mix`    | statischer Merk-Mix-Prototyp    |
 
-| Bereich | Technologie | Status |
-| --- | --- | --- |
-| Backend | Python, Flask | eingerichtet |
-| Frontend | HTML, CSS, JavaScript | eingerichtet |
-| Datenbank | SQLite | geplant |
-| Entwicklungswerkzeuge | BrowserSync, Prettier | eingerichtet |
+`/login` und `/register` werden auf der Landingpage verlinkt, sind aber noch
+nicht als Flask-Routen definiert und liefern aktuell HTTP 404.
 
-## Projekt lokal starten
+## Technologien und Abhängigkeiten
 
-Voraussetzungen sind Python 3, Node.js, `pip` und `npm`.
+| Bereich               | Aktueller Einsatz                                                                                 |
+| --------------------- | ------------------------------------------------------------------------------------------------- |
+| Backend               | Python und Flask                                                                                  |
+| Templates             | Jinja über Flask                                                                                  |
+| Frontend              | HTML und CSS; JavaScript-Datei derzeit leer und nicht eingebunden                                 |
+| Python-Pakete         | Flask 3.1.3 und Requests 2.32.5                                                                   |
+| Entwicklungswerkzeuge | BrowserSync 3.0.4, Concurrently 10.0.5, Prettier 3.9.6 und `prettier-plugin-jinja-template` 2.2.0 |
+
+`requests` wird in `app.py` importiert, im weiteren Code aber noch nicht
+verwendet. Es bleibt in `requirements.txt`, weil die Anwendung ohne das Paket
+beim Import von `app.py` nicht startet.
+
+## Lokal starten
+
+Der vorhandene npm-Startbefehl ist auf Windows und die lokale virtuelle
+Umgebung `.venv` ausgelegt. Er benötigt Python, Node.js, `pip` und `npm`.
 
 ```powershell
-python -m venv .venv
-.venv\Scripts\Activate.ps1
-pip install -r requirements.txt
+py -m venv .venv
+.venv\Scripts\python.exe -m pip install -r requirements.txt
 npm.cmd install
 npm.cmd start
 ```
 
-`npm.cmd start` startet Flask und BrowserSync gemeinsam. BrowserSync öffnet die
-Anwendung automatisch unter `http://localhost:3000`. Falls dieser Port bereits
-belegt ist, wird der nächste freie Port verwendet, zum Beispiel `3001`.
-Änderungen an Templates, CSS oder JavaScript werden mit kurzer Verzögerung
-übernommen; CSS wird dabei ohne vollständiges Neuladen der Seite aktualisiert.
-Flask selbst läuft im Hintergrund unter `http://127.0.0.1:5000`.
+`npm.cmd start` startet Flask unter `http://127.0.0.1:5000` und BrowserSync als
+Proxy unter `http://localhost:3000`. BrowserSync beobachtet die Templates sowie
+CSS- und JavaScript-Dateien und öffnet den Browser automatisch. Beide Prozesse
+lassen sich gemeinsam mit `Strg+C` beenden.
 
-Unter Windows wird `npm.cmd` verwendet, damit der Start auch funktioniert,
-wenn PowerShell die Ausführung von `npm.ps1` blockiert. Beide Prozesse können
-gemeinsam mit `Strg+C` beendet werden.
+Für einen Start ohne BrowserSync und Node-Werkzeuge genügt nach der
+Python-Installation:
 
-## Vorhandene Routen
+```powershell
+.venv\Scripts\python.exe app.py
+```
 
-| Route | Inhalt |
-| --- | --- |
-| `/` | Landingpage |
-| `/spiele` | Spiel- und Kategorieauswahl |
-| `/quiz` | Quizseite mit Beispielaufgabe |
-| `/result` | statische Ergebnisseite |
+Flask läuft dabei im Debug-Modus unter `http://127.0.0.1:5000`.
 
 ## Projektstruktur
 
@@ -87,25 +105,29 @@ KopfFit/
 ├── app.py
 ├── templates/
 │   ├── base.html
+│   ├── app_base.html
 │   ├── home.html
 │   ├── spiele.html
-│   ├── quiz.html
-│   └── result.html
+│   ├── merk_mix.html
+│   └── kartenpaare.html
 ├── static/
 │   ├── css/style.css
 │   ├── js/main.js
 │   └── images/
-├── requirements.txt
-├── package.json
+│       ├── brand/
+│       ├── Ideas/
+│       └── landingpage/
+├── .prettierrc
 ├── bs-config.js
+├── package.json
+├── package-lock.json
+├── requirements.txt
+├── README.md
 ├── PROGRESS.md
-└── ideen.md
+├── ideen.md
+└── .gitignore
 ```
 
-## Team und Verantwortlichkeiten
-
-| Teilnehmer | Rolle | Hauptaufgaben |
-| --- | --- | --- |
-| Ali | Frontend-Entwickler | HTML, CSS, JavaScript, Seitendesign, responsives Design und seniorenfreundliche Bedienung |
-| Marco | Backend-Entwickler | Python, Flask, Routen, Spiellogik, Antworten, Timer und Punkteberechnung |
-| Valentin | Datenbank- und Integrationsentwickler | ER-Modell, SQLite, Speicherung von Fragen und Ergebnissen, Backend-Anbindung und Datentests |
+`static/images/Ideas/` enthält Referenzentwürfe und ist keine Sammlung aktiver
+Seiten. `node_modules/`, `.venv/`, IDE-Dateien, Caches, lokale Umgebungsdateien
+und lokale Datenbanken gehören nicht in die Versionsverwaltung.

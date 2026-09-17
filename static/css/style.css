@@ -27,6 +27,18 @@
 }
 
 
+/* Typography & sizing
+   html font-size: 62.5%
+   1rem = 10px
+   Examples:
+   1.6rem = 16px
+   2rem   = 20px
+   2.4rem = 24px
+   3rem   = 30px
+   3.2rem = 32px
+   4rem   = 40px
+*/
+
 /* Reset */
 
 *,
@@ -37,11 +49,9 @@
     box-sizing: border-box;
 }
 
-
 html {
     font-size: 62.5%;
 }
-
 
 body {
     min-height: 100vh;
@@ -53,7 +63,6 @@ body {
     background-color: var(--color-background);
     color: var(--color-text);
 }
-
 
 /* Typography */
 
@@ -76,7 +85,6 @@ h3 {
     font-size: 2.8rem;
 }
 
-
 /* Media */
 
 img {
@@ -84,7 +92,6 @@ img {
     max-width: 100%;
     height: auto;
 }
-
 
 /* Form elements */
 
@@ -95,14 +102,12 @@ textarea {
     font: inherit;
 }
 
-
 /* Accessibility */
 
 :focus-visible {
     outline: 3px solid var(--color-focus);
     outline-offset: 4px;
 }
-
 
 /* Navigation------------------------------------------ */
 .main-header nav {
@@ -114,15 +119,12 @@ textarea {
     padding: 1.6rem 3.2rem;
     background-color: var(--color-background);
     border-bottom: 1px solid var(--color-border);
-
 }
-
 
 .nav-links {
     list-style: none;
     display: flex;
     gap: 3rem;
-
 }
 
 .nav-links a {
@@ -142,7 +144,6 @@ textarea {
     color: var(--color-heading);
 }
 
-
 .logo img {
     width: 5.2rem;
     height: 5.2rem;
@@ -154,14 +155,11 @@ textarea {
     gap: 1.5rem;
     align-items: center;
     color: var(--color-heading);
-
-
 }
 
 .nav-actions a {
     text-decoration: none;
 }
-
 
 .login-link {
     text-decoration: none;
@@ -175,7 +173,6 @@ textarea {
     color: var(--color-white);
 }
 
-
 .text-size-button {
     text-decoration: none;
     color: var(--color-heading);
@@ -188,7 +185,6 @@ textarea {
 .text-size-button:hover {
     color: var(--color-primary);
 }
-
 
 /* Hero------------------------------------------ */
 
@@ -222,26 +218,20 @@ textarea {
 
 /*  SO EINFACH GEHT'S------------------------------------------ */
 
-
 .funktioniert h2 {
     margin-bottom: 4rem;
-
 }
 
 .funktioniert {
     padding: 8rem 3.2rem;
     max-width: 140rem;
     margin: 0 auto;
-
-
 }
 
 .funktioniert-grid {
-
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.4rem;
-
 }
 
 .funktioniert-grid article {
@@ -249,9 +239,7 @@ textarea {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 1.2rem;
-
 }
-
 
 /*  spiele------------------------------------------ */
 
@@ -259,20 +247,16 @@ textarea {
     margin-bottom: 4rem;
 }
 
-
 .spiele {
     padding: 8rem 3.2rem;
     max-width: 140rem;
     margin: 0 auto;
-
 }
 
 .spiele-grid {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
     gap: 2.4rem;
-
-
 }
 
 .spiele-grid article {
@@ -280,19 +264,15 @@ textarea {
     background-color: var(--color-surface);
     border: 1px solid var(--color-border);
     border-radius: 1.2rem;
-
 }
 
-
 /*  garden------------------------------------------ */
-
 
 .garden-section {
     padding: 8rem 3.2rem;
     max-width: 140rem;
     margin: 0 auto;
 }
-
 
 /*  ACCESSIBILITY------------------------------------------ */
 .accessibility-section {
@@ -303,17 +283,13 @@ textarea {
 
 .accessibility-section h2 {
     margin-bottom: 4rem;
-
-
 }
 
 .accessibility-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 2.4rem;
-
 }
-
 
 /*  FINAL CTA------------------------------------------ */
 
@@ -325,7 +301,6 @@ textarea {
 
 /*  footer------------------------------------------ */
 
-
 .site-footer {
     display: flex;
     align-items: center;
@@ -335,11 +310,9 @@ textarea {
 }
 
 .site-footer nav ul {
-
     display: flex;
     list-style: none;
     gap: 2rem;
-
 }
 
 .site-footer nav a {
@@ -358,7 +331,6 @@ textarea {
     width: 4.4rem;
     height: 4.4rem;
 }
-
 
 /* App Layout -------------------------------- */
 .app-layout {
@@ -402,12 +374,91 @@ textarea {
 .sidebar-nav ul {
     list-style: none;
     gap: 3rem;
-
 }
 
-.games-list{
-     display: grid;
+.games-list {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 2.4rem;
+}
+
+
+/* kartenpaare -------------------------------- */
+
+.game-page {
+    max-width: 120rem;
+    margin: 0 auto;
+    padding: 4rem;
+}
+
+.game-header {
+    margin-bottom: 3rem;
 
 }
+
+
+.game-controls {
+    display: flex;
+    gap: 1.6rem;
+    margin-bottom: 3rem;
+}
+
+
+.game-content {
+    display: grid;
+    grid-template-columns: 28rem 1fr;
+    gap: 3rem;
+    align-items: start;
+}
+
+
+.game-instructions {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    padding: 2rem;
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+    border-radius: 1.6rem;
+
+}
+
+
+.game-instructions h2 {
+    font-size: 3rem;
+    margin-bottom: 3rem;
+}
+
+.memory-board {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    gap: 3rem;
+}
+
+.memory-card {
+    min-height: 13rem;
+}
+
+
+
+
+/* Merk-Mix -------------------------------- */
+.memory-items{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);;
+    gap: 2.4rem;
+    margin-bottom: 3rem;
+}
+.memory-item{
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    min-height: 14rem;
+    padding: 2rem;
+    border-radius: 1.6rem;
+
+}
+
