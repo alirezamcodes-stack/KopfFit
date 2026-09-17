@@ -182,18 +182,20 @@
           <a href="#"> Spiel ausprobieren → </a>
         </article>
 
-        <!-- Zeitreise -->
+        <!-- Alltags-Reihenfolge -->
         <article>
           <img
-            src="{{ url_for('static', filename='images/games/zeitreise.png') }}"
-            alt="Altes Radio für das Spiel Zeitreise"
+            src="{{ url_for('static', filename='images/landingpage/alltags-reihenfolge.png') }}"
+            alt="Altes Radio für das Spiel Alltags-Reihenfolge"
           />
 
-          <h3>Zeitreise</h3>
+          <h3>Alltags-Reihenfolge</h3>
 
-          <p>Vertrautes entdecken und Erinnerungen wecken.</p>
+          <p>Alltägliche Handlungen richtig anordnen.</p>
 
-          <a href="#"> Spiel ausprobieren → </a>
+          <a href="{{ url_for('alltags_reihenfolge') }}">
+            Spiel ausprobieren →
+          </a>
         </article>
       </div>
     </section>
@@ -208,7 +210,7 @@
           mitmachst.
         </p>
 
-        <a href="#"> Jetzt eine Runde spielen → </a>
+        <a href="{{ url_for('spiele') }}"> Jetzt eine Runde spielen → </a>
       </div>
 
       <div class="garden-visual">

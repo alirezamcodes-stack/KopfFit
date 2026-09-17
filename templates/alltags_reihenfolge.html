@@ -1,0 +1,54 @@
+{% extends "app_base.html" %}
+
+{% block title %}
+  Alltags-Reihenfolge – KopfFit
+{% endblock %}
+
+{% block app_content %}
+  <section class="game-page">
+    <header class="game-header">
+      <a href="{{ url_for('spiele') }}">Zurück zu den Spielen</a>
+
+      <h1>Bringe den Alltag in die richtige Reihenfolge.</h1>
+
+      <p>Ordne die Handlungen so, wie sie nacheinander stattfinden.</p>
+    </header>
+
+    <div class="game-controls">
+      <p>Runde 1 von 3</p>
+
+      <button type="button">Vorlesen</button>
+    </div>
+
+    <section class="sequence-list" aria-label="Handlungen anordnen">
+      <button type="button" class="sequence-item">
+        <span class="sequence-number"></span>
+        <span>Wasser in die Tasse gießen</span>
+      </button>
+
+      <button type="button" class="sequence-item">
+        <span class="sequence-number"></span>
+        <span>Wasser im Wasserkocher erhitzen</span>
+      </button>
+
+      <button type="button" class="sequence-item">
+        <span class="sequence-number"></span>
+        <span>Teebeutel in die Tasse legen</span>
+      </button>
+      <button type="button" class="sequence-item">
+        <span class="sequence-number"></span>
+        <span>Teebeutel in die Tasse legen</span>
+      </button>
+      <button type="button" class="sequence-item">
+        <span class="sequence-number"></span>
+        <span>Teebeutel in die Tasse legen</span>
+      </button>
+    </section>
+
+    <div class="game-actions">
+      <button type="button">Reihenfolge prüfen</button>
+
+      <button type="button">Pause</button>
+    </div>
+  </section>
+{% endblock %}

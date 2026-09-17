@@ -1,0 +1,49 @@
+{% extends "app_base.html" %}
+
+{% block title %}
+  Augenblick – KopfFit
+{% endblock %}
+
+{% block app_content %}
+  <section class="game-page">
+    <header class="game-header">
+      <a href="{{ url_for('spiele') }}">Zurück zu den Spielen</a>
+
+      <h1>Finde das andere Bild.</h1>
+
+      <p>Fünf Bilder sind gleich. Welches ist anders?</p>
+    </header>
+
+    <div class="game-controls">
+      <p>Runde 1 von 3</p>
+
+      <button type="button">Vorlesen</button>
+    </div>
+
+    <section class="difference-grid">
+      <button type="button" class="difference-card">
+        <div class="difference-card-image">1</div>
+      </button>
+
+      <button type="button" class="difference-card">
+        <div class="difference-card-image">2</div>
+      </button>
+
+      <button type="button" class="difference-card">
+        <div class="difference-card-image">3</div>
+      </button>
+
+      <button type="button" class="difference-card">
+        <div class="difference-card-image">4</div>
+      </button>
+
+      <button type="button" class="difference-card">
+        <div class="difference-card-image">5</div>
+      </button>
+
+      <button type="button" class="difference-card">
+        <div class="difference-card-image">6</div>
+      </button>
+    </section>
+  </section>
+{% endblock %}

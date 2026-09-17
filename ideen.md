@@ -23,14 +23,15 @@ aktuellen Schaltflächen enthalten noch keine Kartenmotive oder Spiellogik.
 
 ### Augenblick
 
-Die in Landingpage, Spieleübersicht und Bildassets angelegte Idee kann eine
-eigene Seite erhalten, auf der ähnliche Bilder verglichen und Unterschiede
-gefunden werden.
+Die vorhandene statische Seite zeigt sechs Auswahlfelder. Geplant sind passende
+Bildinhalte, eine Unterschiedsprüfung, verständliches Feedback und wechselnde
+Runden.
 
-### Zeitreise
+### Alltags-Reihenfolge
 
-Die in Landingpage, Spieleübersicht und Bildassets angelegte Idee kann eine
-eigene Seite mit vertrauten Motiven oder Themen aus früheren Zeiten erhalten.
+Die vorhandene statische Seite zeigt eine Beispielrunde zum Anordnen
+alltäglicher Handlungen. Geplant sind echte umstellbare Schritte, wechselnde
+Alltagssituationen, eine Prüfung der Reihenfolge und verständliches Feedback.
 
 ## Persönlicher Garten und Fortschritt
 

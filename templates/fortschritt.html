@@ -1,0 +1,67 @@
+{% extends "app_base.html" %}
+
+{% block title %}
+  Fortschritt – KopfFit
+{% endblock %}
+
+{% block app_content %}
+  <section class="progress-page">
+    <header class="progress-header">
+      <h1>Deine kleinen Schritte</h1>
+      <p>Jede Runde zählt. Hier siehst du deinen aktuellen Überblick.</p>
+    </header>
+
+    <section class="progress-stats">
+      <div class="stat-card">
+        <span class="stat-number">3</span>
+        <h2>Runden diese Woche</h2>
+        <p>Du warst diese Woche schon aktiv.</p>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-number">4</span>
+        <h2>Spiele entdeckt</h2>
+        <p>Du hast alle vier Spiele ausprobiert.</p>
+      </div>
+
+      <div class="stat-card">
+        <span class="stat-number">6</span>
+        <h2>Runden insgesamt</h2>
+        <p>Jede gespielte Runde wird hier gezählt.</p>
+      </div>
+    </section>
+
+    <section class="recent-activities">
+      <h2>Deine letzten Aktivitäten</h2>
+
+      <div class="activity-list">
+        <div class="activity-item">
+          <h3>Augenblick</h3>
+          <p>Eine Runde gespielt.</p>
+        </div>
+
+        <div class="activity-item">
+          <h3>Merk-Mix</h3>
+          <p>Eine Runde gespielt.</p>
+        </div>
+
+        <div class="activity-item">
+          <h3>Kartenpaare</h3>
+          <p>Eine Runde gespielt.</p>
+        </div>
+
+        <div class="activity-item">
+          <h3>Alltags-Reihenfolge</h3>
+          <p>Eine Runde gespielt.</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="progress-cta">
+      <h2>Eine Runde spielen</h2>
+      <p>Wähle ein Spiel und starte eine neue Runde.</p>
+
+      <a href="{{ url_for('spiele') }}"> Zu den Spielen </a>
+    </section>
+  </section>
+{% endblock %}

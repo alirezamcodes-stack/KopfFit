@@ -1,4 +1,5 @@
-{% extends "app_base.html" %} {% block title %}Spiele – KopfFit{% endblock %}
+{% extends "app_base.html" %}
+{% block title %}Spiele – KopfFit{% endblock %}
 {% block app_content %}
   <section class="games-page">
     <header class="games-header">
@@ -29,7 +30,7 @@
 
         <p>Schau dir Bilder aufmerksam an und finde kleine Veränderungen.</p>
 
-        <a href="#"> Spielen </a>
+        <a href="{{ url_for('augenblick') }}"> Spielen </a>
       </article>
 
       <article class="game-card">
@@ -47,16 +48,13 @@
       <article class="game-card">
         <span class="game-number">04</span>
 
-        <h2>Zeitreise</h2>
+        <h2>Alltags-Reihenfolge</h2>
 
-        <p>Erinnern. Entdecken. Zurückblicken.</p>
+        <p>Ordnen. Nachdenken. Alltag meistern.</p>
 
-        <p>
-          Entdecke vertraute Dinge aus früheren Zeiten und wecke schöne
-          Erinnerungen.
-        </p>
+        <p>Bringe alltägliche Handlungen in die richtige Reihenfolge.</p>
 
-        <a href="#"> Spielen </a>
+        <a href="{{ url_for('alltags_reihenfolge') }}"> Spielen </a>
       </article>
     </div>
   </section>

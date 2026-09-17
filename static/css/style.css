@@ -26,7 +26,6 @@
     --color-focus: #173b57;
 }
 
-
 /* Typography & sizing
    html font-size: 62.5%
    1rem = 10px
@@ -382,7 +381,6 @@ textarea {
     gap: 2.4rem;
 }
 
-
 /* kartenpaare -------------------------------- */
 
 .game-page {
@@ -393,9 +391,7 @@ textarea {
 
 .game-header {
     margin-bottom: 3rem;
-
 }
-
 
 .game-controls {
     display: flex;
@@ -403,14 +399,12 @@ textarea {
     margin-bottom: 3rem;
 }
 
-
 .game-content {
     display: grid;
     grid-template-columns: 28rem 1fr;
     gap: 3rem;
     align-items: start;
 }
-
 
 .game-instructions {
     display: flex;
@@ -422,9 +416,7 @@ textarea {
     background-color: var(--color-background);
     border: 1px solid var(--color-border);
     border-radius: 1.6rem;
-
 }
-
 
 .game-instructions h2 {
     font-size: 3rem;
@@ -442,23 +434,139 @@ textarea {
     min-height: 13rem;
 }
 
-
-
-
 /* Merk-Mix -------------------------------- */
-.memory-items{
+.memory-items {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);;
+    grid-template-rows: repeat(2, 1fr);
     gap: 2.4rem;
     margin-bottom: 3rem;
 }
-.memory-item{
+
+.memory-item {
     border: 1px solid var(--color-border);
     background-color: var(--color-background);
     min-height: 14rem;
     padding: 2rem;
     border-radius: 1.6rem;
+}
+
+/* augenblick-------------------------------- */
+
+.difference-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+    margin-bottom: 3rem;
+}
+
+.difference-card {
+    border: 1px solid var(--color-border);
+    background-color: var(--color-background);
+    min-height: 14rem;
+    padding: 2rem;
+    border-radius: 1.6rem;
+}
+
+/* Alltags-Reihenfolge -------------------------------- */
+
+.sequence-list {
+    display: grid;
+    gap: 2.4rem;
+    margin-bottom: 3rem;
+}
+
+
+/* Garten -------------------------------- */
+
+
+.garden-info {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2.4rem;
+    margin-bottom: 3rem;
 
 }
 
+.info-card {
+    min-height: 12rem;
+    padding: 2rem;
+    border: 1px solid var( --color-border);
+    border-radius: 1.6rem;
+    background-color: var(--color-background);
+}
+
+.garden-content {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.4rem;
+  margin-bottom: 3rem;
+}
+
+.garden-visual img {
+  width: 100%;
+  border-radius: 1.6rem;
+}
+
+
+
+/* Fortschritt -------------------------------- */
+
+
+
+
+/* Fortschritt -------------------------------- */
+
+.progress-page {
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem;
+}
+
+.progress-header {
+  margin-bottom: 3rem;
+}
+
+.progress-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+  margin-bottom: 3rem;
+}
+
+.stat-card {
+  padding: 2.4rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+}
+
+.stat-number {
+  display: block;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-heading);
+}
+
+.recent-activities {
+  margin-bottom: 3rem;
+}
+
+.activity-list {
+  display: grid;
+  gap: 1.6rem;
+}
+
+.activity-item {
+  padding: 2rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1.2rem;
+}
+
+.progress-cta {
+  padding: 2.4rem;
+  background-color: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+}

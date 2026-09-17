@@ -2,140 +2,116 @@
 
 **Bestandsaufnahme: 17. September 2026**
 
-Dieses Dokument beschreibt ausschließlich den aktuell im Projekt vorhandenen
-Stand. KopfFit ist ein Flask-basierter Frontend-Prototyp. Alle vier definierten
-Routen lassen sich rendern; die beiden Spielseiten enthalten noch keine
-interaktive Spiellogik.
+KopfFit hat eine weitgehend angelegte Frontend-Struktur. Acht Flask-Routen
+rendern eine Landingpage, die Spieleübersicht, vier Spielprototypen sowie die
+internen Seiten Garten und Fortschritt. Die Seiten sind noch nicht durch
+Spiellogik, Speicherung oder Backend-Daten miteinander verbunden.
 
 ## Implementiert
 
-### Flask und Routen
+### Grundstruktur und Navigation
 
-- `app.py` erstellt die Flask-Anwendung.
-- `/` rendert `templates/home.html`.
-- `/spiele` rendert `templates/spiele.html`.
-- `/spiele/kartenpaare` rendert `templates/kartenpaare.html`.
-- `/spiele/merk_mix` rendert `templates/merk_mix.html`.
-- Ein Context Processor stellt `current_year` bereit. Kein aktives Template
-  gibt den Wert derzeit aus.
-- Der direkte Start von `app.py` aktiviert den Flask-Debug-Modus.
+- `base.html` stellt HTML-Grundlage, Metadaten, Icons, Stylesheet und
+  Template-Blöcke bereit.
+- `app_base.html` enthält das gemeinsame interne Layout mit Sidebar.
+- Die Sidebar verlinkt Start, Spiele, Garten und Fortschritt auf vorhandene
+  Routen.
+- Einstellungen und Hilfe sind weiterhin Platzhalter ohne eigene Route.
+- Alle acht in `app.py` definierten Routen lassen sich rendern.
 
-### Templates und sichtbare Begriffe
+### Seiten
 
-- `base.html` definiert Dokumentgrundlage, Seitentitel, Meta-Beschreibung,
-  Favicon, Apple-Touch-Icon, Stylesheet und Template-Blöcke.
-- `app_base.html` stellt für interne Seiten die Navigation „Start“, „Spiele“,
-  „Garten“, „Fortschritt“, „Einstellungen“, „Textgröße“ und „Hilfe“ bereit.
-- Die Landingpage verwendet die Bereiche „So funktioniert's“, „Spiele“, „Dein
-  Garten“ und „Einfach. Klar. In deinem Tempo.“
-- Die Spieleübersicht nennt „Merk-Mix“, „Augenblick“, „Kartenpaare“ und
-  „Zeitreise“.
-- Merk-Mix und Kartenpaare besitzen jeweils eine eigene statische Seite und
-  einen funktionierenden Rücklink zur Spieleübersicht.
+- Die Landingpage enthält Hero, Ablauf, vier Spielkarten, einen Garten-Teaser,
+  Hinweise zur Bedienung, CTA und Footer.
+- Die Spieleübersicht verlinkt alle vier Spielseiten.
+- Garten ist als interne App-Seite unter `/garden` vorhanden und verwendet
+  `static/images/garden_visual.png`.
+- Fortschritt ist als interne App-Seite unter `/fortschritt` vorhanden und
+  verlinkt zurück zur Spieleübersicht.
 
-### Styling und Assets
+### Vier Spielprototypen
 
-- `static/css/style.css` enthält Reset, Grundtypografie, CSS-Farbvariablen,
-  Fokusmarkierung sowie Layouts für Landingpage, Sidebar, Spieleübersicht,
-  Kartenpaare und Merk-Mix.
-- `static/images/brand/` enthält Favicon, Icons, Symbol und horizontales Logo.
-- `static/images/landingpage/` enthält Hero-, Garten- und Spielbilder als PNG
-  und teilweise als WebP.
-- `static/images/Ideas/` enthält 17 Referenzbilder von `00-landing.png` bis
-  `16-guest.png`; diese Dateien sind Entwürfe, keine implementierten Seiten.
+- **Kartenpaare:** statisches Raster aus zwölf Karten für ein visuell-räumliches
+  Paar-Merkspiel
+- **Merk-Mix:** statische Merkphase mit vier leeren Objektplätzen; vorgesehen
+  ist das spätere Wiedererkennen zuvor gezeigter Alltagsgegenstände
+- **Augenblick:** sechs statische Auswahlfelder für das Finden eines
+  abweichenden Bildes
+- **Alltags-Reihenfolge:** statische Liste alltäglicher Handlungen, die später
+  in die richtige logische Reihenfolge gebracht werden sollen
 
-### Entwicklungs- und Setup-Dateien
+### Styling und Werkzeuge
 
-- `requirements.txt` enthält die beiden von `app.py` importierten
-  Drittanbieterpakete Flask 3.1.3 und Requests 2.32.5.
-- `package.json` und `package-lock.json` definieren BrowserSync, Concurrently,
-  Prettier und das Jinja-Template-Plugin als Entwicklungsabhängigkeiten.
-- `npm.cmd start` startet über Concurrently die lokale `.venv` und
-  BrowserSync.
-- `bs-config.js` nutzt Flask unter `http://127.0.0.1:5000` als Proxy,
-  beobachtet Templates, CSS und JavaScript und bevorzugt Port 3000.
-- `.prettierrc` verwendet für HTML-Dateien den Parser `jinja-template`.
+- `static/css/style.css` enthält Farbvariablen, Grundtypografie,
+  Fokusmarkierung und grundlegende Layoutregeln für die vorhandenen Seiten.
+- Garten und Fortschritt besitzen eigene grundlegende Layoutabschnitte im
+  Stylesheet.
+- BrowserSync beobachtet Templates, CSS und JavaScript und verwendet den
+  lokalen Flask-Server als Proxy.
+- Prettier ist für JavaScript, JSON und Jinja-Templates eingerichtet.
 
-## Derzeit in Arbeit oder nur statisch vorbereitet
+## Frontend-Struktur vorhanden, Funktionalität offen
 
-- Merk-Mix enthält vier leere Bildflächen mit den Platzhaltern `sample1` bis
-  `sample4`. „Vorlesen“, „Ich bin bereit“ und „Pause“ lösen nichts aus.
-- Kartenpaare enthält zwölf gleich beschriftete Karten und einen leeren
-  Feedbackbereich. Aufdecken, Mischen, Paarvergleich, Abschlusszustand,
-  Vorlesen und Pause sind nicht implementiert.
-- Augenblick und Zeitreise sind Karten in der Spieleübersicht, haben aber
-  weder eigene Templates noch Flask-Routen.
-- „Fortschritt“, „Einstellungen“ und „Hilfe“ in der Sidebar sind
-  Platzhalterlinks.
-- Die Landingpage verlinkt `/login` und `/register`, obwohl dafür keine Routen
+- Kartenpaare deckt keine Karten auf, mischt nicht und prüft keine Paare.
+- Merk-Mix wechselt nicht zwischen Merk- und Auswahlphase und wertet keine
+  Auswahl aus.
+- Augenblick besitzt keine Bildinhalte, Antwortvalidierung oder
+  Schwierigkeitssteigerung.
+- Alltags-Reihenfolge erlaubt kein Umordnen und prüft keine Reihenfolge.
+- Rundenanzeigen, Vorlesen-, Pause- und Textgröße-Schaltflächen sind statisch.
+- Feedbackbereiche werden nicht dynamisch befüllt.
+- `static/js/main.js` ist leer und wird von keinem Template geladen.
+- Es gibt keine Media Queries; responsive und abschließende barrierearme
+  Ausarbeitung stehen aus.
+
+## Garten und Fortschritt
+
+Garten ist eine eigene interne Seite und kein fünftes Spiel. Die Seite zeigt
+eine Gartenillustration sowie statische Texte zu Wachstum und neuen Pflanzen.
+Runden verändern den Garten noch nicht, Pflanzen werden nicht freigeschaltet
+und es gibt keine gespeicherten Gartenstände.
+
+Fortschritt zeigt die statischen Werte `3` Runden diese Woche, `4` entdeckte
+Spiele und `6` Runden insgesamt sowie vier Beispielaktivitäten. Diese Angaben
+werden weder berechnet noch gespeichert. Eine Statistik-, Tracking- oder
+Datenbankfunktion existiert nicht.
+
+## Bekannte offene Stellen
+
+- Die Landingpage verlinkt `/login` und `/register`, obwohl diese Routen nicht
   existieren.
-- Die Spielkarten der Landingpage referenzieren den nicht vorhandenen Ordner
-  `static/images/games/`. Passende Bilddateien liegen stattdessen unter
-  `static/images/landingpage/`.
-- Das vorhandene Gartenbild ist nicht eingebunden; das Template verwendet für
-  die Gartenillustration `src="#"`.
-- Weitere Spiel-, Garten-, Call-to-Action- und Footerlinks verwenden
+- Mehrere Landingpage-, Footer-, Hilfe- und Einstellungslinks verwenden
   `href="#"`.
-- Die sichtbaren Textgrößen-, Vorlesen- und Pause-Schaltflächen besitzen keine
-  JavaScript-Funktion.
-- `static/js/main.js` ist leer und wird in keinem Template über einen
-  `<script>`-Eintrag geladen.
-- Das Stylesheet enthält keine Media Queries. Die mehrspaltigen Layouts sind
-  daher noch nicht für kleine Ansichten angepasst.
+- Die ersten drei Spielbilder der Landingpage verweisen auf den nicht
+  vorhandenen Ordner `static/images/games/`; passende Dateien liegen unter
+  `static/images/landingpage/`.
+- Der Garten-Teaser der Landingpage verwendet für sein Bild `src="#"`. Die
+  interne Garten-Seite bindet dagegen `static/images/garden_visual.png` ein.
+- Das aktuelle Bild für Alltags-Reihenfolge zeigt ein altes Radio und passt
+  inhaltlich noch nicht zum neuen Reihenfolge-Konzept.
+- Einstellungen hat weder Route noch Template; Hilfe, Datenschutz, Impressum
+  und Kontakt ebenfalls nicht.
+- Benutzerkonten, Authentifizierung, Datenmodelle, Datenbank und dauerhafte
+  Speicherung fehlen.
+- Automatisierte Tests sind nicht vorhanden.
 
-## Noch nicht implementiert
+## Nächste Entwicklungsphase
 
-- tatsächliche Spielrunden und Zustandsverwaltung
-- dynamische Gegenstände, Karteninhalte oder Aufgaben
-- Eingabe- und Antwortauswertung, Punkte oder Ergebnisse
-- Gartenfortschritt und dauerhafte Speicherung
-- Datenbank oder Datenmodelle
-- Anmeldung, Registrierung, Gastmodus oder Sitzungsverwaltung
-- Seiten für Fortschritt, Einstellungen, Hilfe, Datenschutz, Impressum und
-  Kontakt
-- funktionierende Textgrößen-, Vorlese- und Pausenoptionen
-- automatisierte Tests
+Der nächste große Schritt ist die Frontend-Funktionalität mit JavaScript:
+zuerst echte Spielzustände, Eingaben, Auswertung, Rundenwechsel und Feedback
+für die vier Spiele. Danach können Garten und Fortschritt an abgeschlossene
+Runden angebunden werden. Dauerhafte Speicherung und Konten setzen eine
+spätere Backend- und Datenbankschicht voraus.
 
-Weitere noch relevante Produktideen stehen in [ideen.md](ideen.md).
+## Aktuelle Routen
 
-## Verifiziert
-
-- Die Routen `/`, `/spiele`, `/spiele/kartenpaare` und `/spiele/merk_mix`
-  liefern mit dem Flask-Testclient HTTP 200.
-- Die im aktuellen Template verlinkten Pfade `/login` und `/register` liefern
-  HTTP 404, weil dafür noch keine Flask-Routen definiert sind.
-- Die konfigurierte Entwicklungsumgebung verwendet Python 3.13.3.
-- Flask 3.1.3 und Requests 2.32.5 sind installiert.
-- `pip check` meldet keine defekten Python-Abhängigkeiten.
-- Die direkten Node-Entwicklungsabhängigkeiten in `package.json` stimmen mit
-  `package-lock.json` überein.
-
-## Aktuelle Projektstruktur
-
-```text
-KopfFit/
-├── app.py
-├── templates/
-│   ├── base.html
-│   ├── app_base.html
-│   ├── home.html
-│   ├── spiele.html
-│   ├── merk_mix.html
-│   └── kartenpaare.html
-├── static/
-│   ├── css/style.css
-│   ├── js/main.js
-│   └── images/
-│       ├── brand/
-│       ├── Ideas/
-│       └── landingpage/
-├── .prettierrc
-├── bs-config.js
-├── package.json
-├── package-lock.json
-├── requirements.txt
-├── README.md
-├── PROGRESS.md
-├── ideen.md
-└── .gitignore
-```
+| Route                         | Endpoint              | Template                   |
+| ----------------------------- | --------------------- | -------------------------- |
+| `/`                           | `home`                | `home.html`                |
+| `/spiele`                     | `spiele`              | `spiele.html`              |
+| `/spiele/kartenpaare`         | `kartenpaare`         | `kartenpaare.html`         |
+| `/spiele/merk_mix`            | `merk_mix`            | `merk_mix.html`            |
+| `/spiele/augenblick`          | `augenblick`          | `augenblick.html`          |
+| `/spiele/alltags-reihenfolge` | `alltags_reihenfolge` | `alltags_reihenfolge.html` |
+| `/garden`                     | `garden`              | `garden.html`              |
+| `/fortschritt`                | `fortschritt`         | `fortschritt.html`         |

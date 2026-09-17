@@ -22,7 +22,27 @@ def kartenpaare():
 
 @app.route("/spiele/merk_mix")
 def merk_mix():
-    return render_template("merk_mix.html")
+    return (render_template("merk_mix.html"))
+
+
+@app.route("/spiele/augenblick")
+def augenblick():
+    return render_template("augenblick.html")
+
+
+@app.route("/spiele/alltags-reihenfolge")
+def alltags_reihenfolge():
+    return render_template("alltags_reihenfolge.html")
+
+
+@app.route("/garden")
+def garden():
+    return (render_template("garden.html"))
+
+
+@app.route("/fortschritt")
+def fortschritt():
+    return render_template("fortschritt.html")
 
 
 @app.context_processor

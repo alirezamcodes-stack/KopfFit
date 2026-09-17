@@ -1,0 +1,58 @@
+{% extends "app_base.html" %}
+
+{% block title %}
+  Garten – KopfFit
+{% endblock %}
+
+{% block app_content %}
+  <section class="garden-page">
+    <header class="garden-header">
+      <h1>Dein Garten</h1>
+      <p>Jede gespielte Runde zählt.</p>
+    </header>
+
+    <section class="garden-content">
+      <div class="garden-visual">
+        <img
+          src="{{ url_for('static', filename='images/garden_visual.png') }}"
+          alt=""
+        />
+        <p>Mit jeder Runde wächst dein Garten ein Stückchen weiter.</p>
+      </div>
+
+      <div class="garden-reward">
+        <h2>Eine neue Blume für dich.</h2>
+        <p>
+          Spiele weiter und entdecke nach und nach neue Pflanzen für deinen
+          Garten.
+        </p>
+      </div>
+    </section>
+
+    <section class="garden-info">
+      <div class="info-card">
+        <h3>Dein Garten wächst</h3>
+        <p>
+          Jede gespielte Runde bringt deinen Garten ein kleines Stück weiter.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Neue Pflanzen entdecken</h3>
+        <p>
+          Mit der Zeit kannst du verschiedene Blumen und Pflanzen entdecken.
+        </p>
+      </div>
+
+      <div class="info-card">
+        <h3>Dranbleiben lohnt sich</h3>
+        <p>
+          Spiele regelmäßig eine Runde und beobachte, wie sich dein Garten
+          verändert.
+        </p>
+      </div>
+    </section>
+
+    <div class="garden-message" role="status" aria-live="polite"></div>
+  </section>
+{% endblock %}
