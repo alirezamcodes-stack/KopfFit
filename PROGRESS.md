@@ -1,11 +1,12 @@
 # Projektfortschritt – KopfFit
 
-**Bestandsaufnahme: 17. September 2026**
+**Bestandsaufnahme: 24. September 2026**
 
 KopfFit hat eine weitgehend angelegte Frontend-Struktur. Acht Flask-Routen
-rendern eine Landingpage, die Spieleübersicht, vier Spielprototypen sowie die
-internen Seiten Garten und Fortschritt. Die Seiten sind noch nicht durch
-Spiellogik, Speicherung oder Backend-Daten miteinander verbunden.
+rendern eine Landingpage, die Spieleübersicht, vier Spielseiten sowie die
+internen Seiten Garten und Fortschritt. Merk-Mix besitzt inzwischen einen
+vollständigen Rundenablauf im Browser. Speicherung und gemeinsame Backend-Daten
+zwischen den Seiten fehlen weiterhin.
 
 ## Implementiert
 
@@ -29,12 +30,12 @@ Spiellogik, Speicherung oder Backend-Daten miteinander verbunden.
 - Fortschritt ist als interne App-Seite unter `/fortschritt` vorhanden und
   verlinkt zurück zur Spieleübersicht.
 
-### Vier Spielprototypen
+### Spiele
 
 - **Kartenpaare:** statisches Raster aus zwölf Karten für ein visuell-räumliches
   Paar-Merkspiel
-- **Merk-Mix:** statische Merkphase mit vier leeren Objektplätzen; vorgesehen
-  ist das spätere Wiedererkennen zuvor gezeigter Alltagsgegenstände
+- **Merk-Mix:** spielbarer Rundenablauf mit vier zufälligen Merkbildern,
+  Schwierigkeitswahl, Auswahlphase, Auswertung, Ergebnisfeedback und Neustart
 - **Augenblick:** sechs statische Auswahlfelder für das Finden eines
   abweichenden Bildes
 - **Alltags-Reihenfolge:** statische Liste alltäglicher Handlungen, die später
@@ -50,19 +51,38 @@ Spiellogik, Speicherung oder Backend-Daten miteinander verbunden.
   lokalen Flask-Server als Proxy.
 - Prettier ist für JavaScript, JSON und Jinja-Templates eingerichtet.
 
+### Merk-Mix-Funktionalität
+
+- Flask liest die verfügbaren PNG-Dateien aus
+  `static/images/games/merk_mix/` ein und übergibt ihre Dateinamen an das
+  Template.
+- Pro Seitenaufruf werden vier zufällige Bilder für die Merkphase gewählt.
+- Vor dem Phasenwechsel muss Leicht, Mittel oder Schwer gewählt werden. Die
+  Stufen zeigen in der Auswahlphase insgesamt 6, 8 oder 10 Bilder.
+- Mit „Ich bin bereit“ werden die Merkbilder ausgeblendet, die
+  Schwierigkeitswahl gesperrt und die gemischten Antwortbilder angezeigt.
+- Antwortbilder lassen sich aus- und wieder abwählen. Maximal vier Antworten
+  sind möglich; „Antwort bestätigen“ wird erst bei genau vier ausgewählten
+  Bildern aktiv.
+- Nach der Bestätigung werden richtige ausgewählte und übersehene Bilder als
+  richtig sowie falsche ausgewählte Bilder als falsch markiert. Eine
+  Ergebnisnachricht zeigt die Zahl der richtig erkannten Bilder.
+- Die Antworten werden anschließend gesperrt. „Neustarten“ lädt die Seite neu
+  und erzeugt dadurch eine neue Runde.
+
 ## Frontend-Struktur vorhanden, Funktionalität offen
 
 - Kartenpaare deckt keine Karten auf, mischt nicht und prüft keine Paare.
-- Merk-Mix wechselt nicht zwischen Merk- und Auswahlphase und wertet keine
-  Auswahl aus.
 - Augenblick besitzt keine Bildinhalte, Antwortvalidierung oder
   Schwierigkeitssteigerung.
 - Alltags-Reihenfolge erlaubt kein Umordnen und prüft keine Reihenfolge.
 - Rundenanzeigen, Vorlesen-, Pause- und Textgröße-Schaltflächen sind statisch.
-- Feedbackbereiche werden nicht dynamisch befüllt.
+- Feedbackbereiche der übrigen Spiele werden nicht dynamisch befüllt.
 - `static/js/main.js` ist leer und wird von keinem Template geladen.
 - Es gibt keine Media Queries; responsive und abschließende barrierearme
   Ausarbeitung stehen aus.
+- Merk-Mix speichert weder Schwierigkeit noch Ergebnisse; abgeschlossene
+  Runden aktualisieren Garten und Fortschritt noch nicht.
 
 ## Garten und Fortschritt
 
@@ -97,11 +117,11 @@ Datenbankfunktion existiert nicht.
 
 ## Nächste Entwicklungsphase
 
-Der nächste große Schritt ist die Frontend-Funktionalität mit JavaScript:
-zuerst echte Spielzustände, Eingaben, Auswertung, Rundenwechsel und Feedback
-für die vier Spiele. Danach können Garten und Fortschritt an abgeschlossene
-Runden angebunden werden. Dauerhafte Speicherung und Konten setzen eine
-spätere Backend- und Datenbankschicht voraus.
+Der nächste große Schritt ist die noch offene Frontend-Funktionalität für
+Kartenpaare, Augenblick und Alltags-Reihenfolge: echte Spielzustände, Eingaben,
+Auswertung, Rundenwechsel und Feedback. Danach können Merk-Mix und die weiteren
+Spiele an Garten und Fortschritt angebunden werden. Dauerhafte Speicherung und
+Konten setzen eine spätere Backend- und Datenbankschicht voraus.
 
 ## Aktuelle Routen
 

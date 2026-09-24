@@ -3,8 +3,9 @@
 KopfFit ist ein deutschsprachiger Frontend-Prototyp für kurze, ruhig
 gestaltete Gedächtnisübungen. Das Angebot richtet sich an Menschen, die ohne
 Zeitdruck Aufmerksamkeit, Erinnern und logisches Ordnen trainieren möchten.
-Flask rendert die Seiten; die aktuelle Umsetzung besteht aus Jinja-Templates
-und CSS. Interaktive Spiellogik und dauerhafte Datenhaltung fehlen noch.
+Flask rendert die Seiten; die aktuelle Umsetzung besteht aus Jinja-Templates,
+CSS und JavaScript. Merk-Mix besitzt bereits einen vollständigen lokalen
+Rundenablauf. Dauerhafte Datenhaltung fehlt noch.
 
 ## Aktueller Stand
 
@@ -17,14 +18,20 @@ und CSS. Interaktive Spiellogik und dauerhafte Datenhaltung fehlen noch.
 - interne Seiten für Garten und Fortschritt
 - gemeinsames Stylesheet mit Farbvariablen, Grundtypografie, Seitenlayouts und
   sichtbarer Tastaturfokus-Markierung
+- vollständiger Merk-Mix-Rundenablauf mit Schwierigkeitswahl, Merkphase,
+  Bildauswahl, Bestätigung, Ergebnisfeedback und Neustart
 - lokale Entwicklungsumgebung mit Flask, BrowserSync und Prettier
 
-### Frontend-Prototypen
+### Spiele
 
 - **Kartenpaare:** visuell-räumliches Gedächtnisspiel zum Finden gleicher
   Paare; derzeit ein statisches Raster ohne Kartenmotive oder Paarprüfung
-- **Merk-Mix:** zeigt zuerst Alltagsgegenstände, die später wiedererkannt
-  werden sollen; derzeit statische Platzhalter ohne Phasenwechsel oder Auswahl
+- **Merk-Mix:** zeigt vier zufällig gewählte Alltagsgegenstände. Nach der Wahl
+  von Leicht, Mittel oder Schwer startet die Auswahlphase mit 6, 8 oder 10
+  Bildern. Genau vier Bilder können ausgewählt und anschließend bestätigt
+  werden. Richtige, falsche und übersehene Antworten erhalten visuelles
+  Feedback; eine Ergebnisnachricht nennt die Trefferzahl und ein Neustart lädt
+  eine neue Runde.
 - **Augenblick:** ein abweichendes Bild soll unter ähnlichen Bildern gefunden
   werden; derzeit sechs statische Auswahlfelder ohne Bildinhalte oder
   Antwortprüfung
@@ -40,9 +47,9 @@ und CSS. Interaktive Spiellogik und dauerhafte Datenhaltung fehlen noch.
 
 ### Noch nicht implementiert
 
-- JavaScript-Spiellogik, Rundenabläufe, Auswertung und dynamisches Feedback
+- JavaScript-Spiellogik, Rundenabläufe, Auswertung und dynamisches Feedback für
+  Kartenpaare, Augenblick und Alltags-Reihenfolge
 - Kartenaufdecken und Paarvergleich bei Kartenpaare
-- Merk- und Auswahlphase bei Merk-Mix
 - Antwortvalidierung und steigende Schwierigkeit bei Augenblick
 - Umordnen und Prüfen bei Alltags-Reihenfolge
 - funktionierende Vorlesen-, Pause- und Textgröße-Bedienung
@@ -51,7 +58,10 @@ und CSS. Interaktive Spiellogik und dauerhafte Datenhaltung fehlen noch.
 - Einstellungen-, Hilfe-, Datenschutz-, Impressum- und Kontaktseiten
 - responsive und abschließend barrierearme Ausarbeitung
 
-`static/js/main.js` ist leer und wird von keinem Template geladen.
+Merk-Mix läuft vollständig im Browser. Ein Neustart lädt die Seite neu; das
+Ergebnis wird nicht gespeichert und fließt noch nicht in Garten oder
+Fortschritt ein. `static/js/main.js` ist leer und wird von keinem Template
+geladen.
 Einstellungen ist in der Sidebar nur als Platzhalter verlinkt und besitzt weder
 Route noch Template.
 
@@ -62,7 +72,7 @@ Route noch Template.
 | `/`                           | `home`                | `home.html`                | Landingpage         |
 | `/spiele`                     | `spiele`              | `spiele.html`              | Spieleübersicht     |
 | `/spiele/kartenpaare`         | `kartenpaare`         | `kartenpaare.html`         | Frontend-Prototyp   |
-| `/spiele/merk_mix`            | `merk_mix`            | `merk_mix.html`            | Frontend-Prototyp   |
+| `/spiele/merk_mix`            | `merk_mix`            | `merk_mix.html`            | spielbarer Prototyp |
 | `/spiele/augenblick`          | `augenblick`          | `augenblick.html`          | Frontend-Prototyp   |
 | `/spiele/alltags-reihenfolge` | `alltags_reihenfolge` | `alltags_reihenfolge.html` | Frontend-Prototyp   |
 | `/garden`                     | `garden`              | `garden.html`              | statische App-Seite |
@@ -83,7 +93,7 @@ Gartenillustration des Landingpage-Abschnitts verwendet noch `src="#"`.
 | --------------------- | ------------------------------------------------------------------------------------------------- |
 | Backend               | Python 3 und Flask 3.1.3                                                                          |
 | Templates             | Jinja über Flask                                                                                  |
-| Frontend              | HTML und CSS; noch kein aktives JavaScript                                                        |
+| Frontend              | HTML, CSS und JavaScript; aktive Spiellogik derzeit für Merk-Mix                                  |
 | Python-Pakete         | Flask 3.1.3 und Requests 2.32.5                                                                   |
 | Entwicklungswerkzeuge | BrowserSync 3.0.4, Concurrently 10.0.5, Prettier 3.9.6 und `prettier-plugin-jinja-template` 2.2.0 |
 
@@ -123,10 +133,13 @@ KopfFit/
 │   └── fortschritt.html
 ├── static/
 │   ├── css/style.css
-│   ├── js/main.js
+│   ├── js/
+│   │   ├── main.js
+│   │   └── merk_mix.js
 │   └── images/
 │       ├── brand/
 │       ├── Ideas/
+│       ├── games/merk_mix/
 │       ├── landingpage/
 │       └── garden_visual.png
 ├── .prettierrc
