@@ -19,19 +19,25 @@ Rundenablauf. Dauerhafte Datenhaltung fehlt noch.
 - gemeinsames Stylesheet mit Farbvariablen, Grundtypografie, Seitenlayouts und
   sichtbarer Tastaturfokus-Markierung
 - vollständiger Merk-Mix-Rundenablauf mit Schwierigkeitswahl, Merkphase,
-  Bildauswahl, Bestätigung, Ergebnisfeedback und Neustart
+  Bildauswahl, Bestätigung, Ergebnisfeedback und mehreren Runden ohne
+  Neuladen der Seite
+- aufgeräumtes und gegliedertes JavaScript und CSS; ausgeblendete Elemente
+  werden einheitlich über das HTML-Attribut `hidden` behandelt
 - lokale Entwicklungsumgebung mit Flask, BrowserSync und Prettier
 
 ### Spiele
 
 - **Kartenpaare:** visuell-räumliches Gedächtnisspiel zum Finden gleicher
   Paare; derzeit ein statisches Raster ohne Kartenmotive oder Paarprüfung
-- **Merk-Mix:** zeigt vier zufällig gewählte Alltagsgegenstände. Nach der Wahl
-  von Leicht, Mittel oder Schwer startet die Auswahlphase mit 6, 8 oder 10
-  Bildern. Genau vier Bilder können ausgewählt und anschließend bestätigt
-  werden. Richtige, falsche und übersehene Antworten erhalten visuelles
-  Feedback; eine Ergebnisnachricht nennt die Trefferzahl und ein Neustart lädt
-  eine neue Runde.
+- **Merk-Mix:** unterstützt mehrere Runden ohne Seitenreload und wählt pro Runde
+  vier neue zufällige Merkbilder. Leicht zeigt 6, Mittel 8 und Schwer 10
+  Antwortbilder. Maximal vier Bilder können ausgewählt werden; „Antwort
+  bestätigen“ wird bei genau vier ausgewählten Bildern aktiv. Richtige,
+  falsche und nicht ausgewählte richtige Antworten erhalten visuelles Feedback.
+  Überschrift und Anleitung wechseln passend zur Merk-, Auswahl- und
+  Ergebnisphase. „Nächste Runde“ setzt den Rundenzustand per JavaScript zurück.
+  Die gewählte Schwierigkeit bleibt markiert, kann vor der nächsten
+  Auswahlphase aber geändert werden.
 - **Augenblick:** ein abweichendes Bild soll unter ähnlichen Bildern gefunden
   werden; derzeit sechs statische Auswahlfelder ohne Bildinhalte oder
   Antwortprüfung
@@ -55,13 +61,13 @@ Rundenablauf. Dauerhafte Datenhaltung fehlt noch.
 - funktionierende Vorlesen-, Pause- und Textgröße-Bedienung
 - dynamisches Gartenwachstum, Freischaltungen und echte Fortschrittswerte
 - Datenbank, Speicherung, Benutzerkonten und Authentifizierung
+- automatisierte Tests
 - Einstellungen-, Hilfe-, Datenschutz-, Impressum- und Kontaktseiten
 - responsive und abschließend barrierearme Ausarbeitung
 
-Merk-Mix läuft vollständig im Browser. Ein Neustart lädt die Seite neu; das
-Ergebnis wird nicht gespeichert und fließt noch nicht in Garten oder
-Fortschritt ein. `static/js/main.js` ist leer und wird von keinem Template
-geladen.
+Merk-Mix läuft vollständig im Browser. Ergebnisse werden nicht gespeichert und
+fließen noch nicht in Garten oder Fortschritt ein. `static/js/main.js` ist leer
+und wird von keinem Template geladen.
 Einstellungen ist in der Sidebar nur als Platzhalter verlinkt und besitzt weder
 Route noch Template.
 
@@ -97,7 +103,8 @@ Gartenillustration des Landingpage-Abschnitts verwendet noch `src="#"`.
 | Python-Pakete         | Flask 3.1.3 und Requests 2.32.5                                                                   |
 | Entwicklungswerkzeuge | BrowserSync 3.0.4, Concurrently 10.0.5, Prettier 3.9.6 und `prettier-plugin-jinja-template` 2.2.0 |
 
-`requests` wird in `app.py` importiert, derzeit aber nicht verwendet.
+`requests` ist als Abhängigkeit eingetragen, wird in `app.py` derzeit aber nicht
+verwendet.
 
 ## Lokal starten
 

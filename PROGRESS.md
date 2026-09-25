@@ -1,127 +1,137 @@
 # Projektfortschritt – KopfFit
 
-**Bestandsaufnahme: 24. September 2026**
+## Aktueller Stand
 
-KopfFit hat eine weitgehend angelegte Frontend-Struktur. Acht Flask-Routen
-rendern eine Landingpage, die Spieleübersicht, vier Spielseiten sowie die
-internen Seiten Garten und Fortschritt. Merk-Mix besitzt inzwischen einen
-vollständigen Rundenablauf im Browser. Speicherung und gemeinsame Backend-Daten
-zwischen den Seiten fehlen weiterhin.
+KopfFit besitzt eine vollständige Frontend-Grundlage mit Landingpage,
+Spieleübersicht, vier Spielseiten sowie eigenen Seiten für Garten und
+Fortschritt. Acht Flask-Routen rendern die vorhandenen Jinja-Templates; das
+gemeinsame App-Layout verwendet eine Sidebar-Navigation.
 
-## Implementiert
+Merk-Mix ist derzeit das am weitesten entwickelte Spiel. Flask liest die
+vorhandenen PNG-Dateien aus `static/images/games/merk_mix/` ein und übergibt sie
+an das Template. Im Browser stehen eine Merkphase, drei Schwierigkeitsstufen,
+die Auswahl und Auswertung von Antworten, visuelles Feedback sowie mehrere
+Runden ohne Neuladen der Seite zur Verfügung:
 
-### Grundstruktur und Navigation
+- Pro Runde werden vier zufällige Merkbilder ausgewählt.
+- Leicht zeigt 6, Mittel 8 und Schwer 10 Antwortbilder. Die vier richtigen
+  Bilder werden um zufällige Ablenkungsbilder ergänzt und gemischt.
+- Es können höchstens vier Bilder ausgewählt werden. „Antwort bestätigen“ wird
+  bei genau vier ausgewählten Bildern aktiv.
+- Richtige, falsche und nicht ausgewählte richtige Antworten werden visuell
+  markiert; zusätzlich erscheint die Zahl der richtig erkannten Bilder.
+- Überschrift und Anleitung wechseln passend zwischen Merk-, Auswahl- und
+  Ergebnisphase.
+- „Nächste Runde“ entfernt die vorherigen Antworten und Antwortfelder, setzt
+  das Ergebnis zurück und wählt vier neue Merkbilder per JavaScript.
+- Die ausgewählte Schwierigkeit bleibt zwischen den Runden markiert. Ihre
+  Schaltflächen werden in der neuen Merkphase wieder freigegeben, sodass die
+  Stufe vor der nächsten Auswahlphase geändert werden kann.
 
-- `base.html` stellt HTML-Grundlage, Metadaten, Icons, Stylesheet und
-  Template-Blöcke bereit.
-- `app_base.html` enthält das gemeinsame interne Layout mit Sidebar.
-- Die Sidebar verlinkt Start, Spiele, Garten und Fortschritt auf vorhandene
-  Routen.
-- Einstellungen und Hilfe sind weiterhin Platzhalter ohne eigene Route.
-- Alle acht in `app.py` definierten Routen lassen sich rendern.
+Kartenpaare, Augenblick und Alltags-Reihenfolge besitzen bereits ihre
+Frontend-Struktur und Bildressourcen, aber noch keine vollständige
+JavaScript-Spiellogik. Garten und Fortschritt sind statische Ansichten:
+Spielergebnisse werden nicht gespeichert, Fortschrittswerte werden nicht
+berechnet und gespielte Runden verändern den Garten nicht. Eine Datenbank,
+Backend-Persistenz, Benutzerkonten und Authentifizierung sind nicht
+implementiert.
 
-### Seiten
+## Entwicklungsverlauf
 
-- Die Landingpage enthält Hero, Ablauf, vier Spielkarten, einen Garten-Teaser,
-  Hinweise zur Bedienung, CTA und Footer.
-- Die Spieleübersicht verlinkt alle vier Spielseiten.
-- Garten ist als interne App-Seite unter `/garden` vorhanden und verwendet
-  `static/images/garden_visual.png`.
-- Fortschritt ist als interne App-Seite unter `/fortschritt` vorhanden und
-  verlinkt zurück zur Spieleübersicht.
+Dieser Abschnitt ist die dauerhafte, chronologische Projekthistorie. Neue
+Entwicklungstage werden als datierte Einträge oben ergänzt. Ältere Einträge
+werden nicht gelöscht oder überschrieben. Der Abschnitt „Aktueller Stand“
+beschreibt dagegen ausschließlich den jeweils gegenwärtigen Projektzustand.
 
-### Spiele
+### 25.09.2026
 
-- **Kartenpaare:** statisches Raster aus zwölf Karten für ein visuell-räumliches
-  Paar-Merkspiel
-- **Merk-Mix:** spielbarer Rundenablauf mit vier zufälligen Merkbildern,
-  Schwierigkeitswahl, Auswahlphase, Auswertung, Ergebnisfeedback und Neustart
-- **Augenblick:** sechs statische Auswahlfelder für das Finden eines
-  abweichenden Bildes
-- **Alltags-Reihenfolge:** statische Liste alltäglicher Handlungen, die später
-  in die richtige logische Reihenfolge gebracht werden sollen
+- Merk-Mix wurde vervollständigt und technisch aufgeräumt.
+- Mehrere Runden können ohne Neuladen der Seite gespielt werden. Die Aktion
+  „Nächste Runde“ startet den neuen Durchlauf per JavaScript.
+- Beim Rundenwechsel werden die bisherigen Antworten, die Ergebnisnachricht
+  und die erzeugten Antwortfelder zurückgesetzt.
+- Für jede Runde werden vier neue zufällige Merkbilder ausgewählt.
+- Überschrift und Anleitung wechseln abhängig von Merk-, Auswahl- und
+  Ergebnisphase.
+- Die ausgewählte Schwierigkeit bleibt zwischen den Runden erhalten; die
+  Schwierigkeitsbuttons werden für die neue Runde wieder freigegeben.
+- JavaScript und CSS wurden bereinigt und nach Aufgabenbereichen neu geordnet.
+  Verborgene Elemente werden einheitlich über das HTML-Attribut `hidden` und
+  die zugehörige CSS-Regel behandelt.
+- Ausgewählte, richtige und falsche Antwortzustände werden visuell dargestellt;
+  nicht ausgewählte richtige Bilder erhalten ebenfalls die richtige Markierung.
 
-### Styling und Werkzeuge
+### 24.09.2026
 
-- `static/css/style.css` enthält Farbvariablen, Grundtypografie,
-  Fokusmarkierung und grundlegende Layoutregeln für die vorhandenen Seiten.
-- Garten und Fortschritt besitzen eigene grundlegende Layoutabschnitte im
-  Stylesheet.
-- BrowserSync beobachtet Templates, CSS und JavaScript und verwendet den
-  lokalen Flask-Server als Proxy.
-- Prettier ist für JavaScript, JSON und Jinja-Templates eingerichtet.
+- Das dynamische Laden der Merk-Mix-Bilder wurde eingeführt. Flask liest die
+  verfügbaren Bilddateien ein und übergibt ihre Dateinamen an das Template.
+- Vier zufällige Bilder bilden die Merkphase.
+- Die Schwierigkeitsstufen Leicht, Mittel und Schwer wurden ergänzt. Sie zeigen
+  6, 8 beziehungsweise 10 Antwortbilder.
+- Die Antwortauswahl kombiniert die vier richtigen Bilder mit zufälligen
+  Ablenkungsbildern und mischt anschließend ihre Reihenfolge.
+- Die Auswahl wurde auf maximal vier Bilder begrenzt.
+- Das Bestätigen und Auswerten der Antworten einschließlich Ergebnisnachricht
+  wurde eingeführt.
 
-### Merk-Mix-Funktionalität
+### 17.09.2026
 
-- Flask liest die verfügbaren PNG-Dateien aus
-  `static/images/games/merk_mix/` ein und übergibt ihre Dateinamen an das
-  Template.
-- Pro Seitenaufruf werden vier zufällige Bilder für die Merkphase gewählt.
-- Vor dem Phasenwechsel muss Leicht, Mittel oder Schwer gewählt werden. Die
-  Stufen zeigen in der Auswahlphase insgesamt 6, 8 oder 10 Bilder.
-- Mit „Ich bin bereit“ werden die Merkbilder ausgeblendet, die
-  Schwierigkeitswahl gesperrt und die gemischten Antwortbilder angezeigt.
-- Antwortbilder lassen sich aus- und wieder abwählen. Maximal vier Antworten
-  sind möglich; „Antwort bestätigen“ wird erst bei genau vier ausgewählten
-  Bildern aktiv.
-- Nach der Bestätigung werden richtige ausgewählte und übersehene Bilder als
-  richtig sowie falsche ausgewählte Bilder als falsch markiert. Eine
-  Ergebnisnachricht zeigt die Zahl der richtig erkannten Bilder.
-- Die Antworten werden anschließend gesperrt. „Neustarten“ lädt die Seite neu
-  und erzeugt dadurch eine neue Runde.
+- Die Frontend-Spielseiten wurden ausgebaut; Kartenpaare und Merk-Mix wurden
+  weiterentwickelt.
+- Eigene Seiten für Augenblick, Alltags-Reihenfolge, Garten und Fortschritt
+  wurden ergänzt.
+- Flask-Routen, Spieleübersicht und interne Navigation wurden entsprechend
+  erweitert.
+- Die Projektdokumentation wurde mit dem Frontend-Stand synchronisiert.
+- Bildressourcen für Kartenpaare, Merk-Mix, Augenblick und
+  Alltags-Reihenfolge wurden hinzugefügt.
+- Gartenbilder für die Hauptansicht und mehrere Entwicklungsstufen wurden
+  ergänzt.
 
-## Frontend-Struktur vorhanden, Funktionalität offen
+### 11.09.2026
 
-- Kartenpaare deckt keine Karten auf, mischt nicht und prüft keine Paare.
-- Augenblick besitzt keine Bildinhalte, Antwortvalidierung oder
-  Schwierigkeitssteigerung.
-- Alltags-Reihenfolge erlaubt kein Umordnen und prüft keine Reihenfolge.
-- Rundenanzeigen, Vorlesen-, Pause- und Textgröße-Schaltflächen sind statisch.
-- Feedbackbereiche der übrigen Spiele werden nicht dynamisch befüllt.
-- `static/js/main.js` ist leer und wird von keinem Template geladen.
-- Es gibt keine Media Queries; responsive und abschließende barrierearme
-  Ausarbeitung stehen aus.
-- Merk-Mix speichert weder Schwierigkeit noch Ergebnisse; abgeschlossene
-  Runden aktualisieren Garten und Fortschritt noch nicht.
+- Navbar, Hero-Bereich, Inhaltsraster und Footer erhielten ihre grundlegenden
+  Styles.
+- Die Bilder der Landingpage wurden eingebunden.
+- Die bisherige Kategorienseite wurde in „Spiele“ umbenannt und Route sowie
+  Verweise wurden angepasst.
+- Mit `app_base.html` wurde ein gemeinsames internes App-Layout eingeführt.
+- Die Sidebar-Navigation wurde ergänzt.
+- README und Projektfortschritt wurden aktualisiert.
+- BrowserSync und die lokale Entwicklungsumgebung wurden weiter eingerichtet.
 
-## Garten und Fortschritt
+### 10.09.2026
 
-Garten ist eine eigene interne Seite und kein fünftes Spiel. Die Seite zeigt
-eine Gartenillustration sowie statische Texte zu Wachstum und neuen Pflanzen.
-Runden verändern den Garten noch nicht, Pflanzen werden nicht freigeschaltet
-und es gibt keine gespeicherten Gartenstände.
+- Die aktuelle KopfFit-Version begann als Neustart des Projekts.
+- CSS und Markenauftritt wurden überarbeitet; KopfFit-Logo, Symbol, Favicons und
+  App-Icons wurden integriert.
+- Die Struktur der Landingpage wurde neu aufgebaut und ihre Abschnitte wurden
+  vervollständigt.
+- Prettier wurde für die einheitliche Formatierung eingerichtet.
+- `node_modules` wurde aus der Versionsverwaltung ausgeschlossen.
+- UI-Referenzbilder für die geplanten Seiten und Zustände wurden dem Projekt
+  hinzugefügt.
 
-Fortschritt zeigt die statischen Werte `3` Runden diese Woche, `4` entdeckte
-Spiele und `6` Runden insgesamt sowie vier Beispielaktivitäten. Diese Angaben
-werden weder berechnet noch gespeichert. Eine Statistik-, Tracking- oder
-Datenbankfunktion existiert nicht.
+## Aktuell offen
 
-## Bekannte offene Stellen
-
-- Die Landingpage verlinkt `/login` und `/register`, obwohl diese Routen nicht
-  existieren.
-- Mehrere Landingpage-, Footer-, Hilfe- und Einstellungslinks verwenden
-  `href="#"`.
-- Die ersten drei Spielbilder der Landingpage verweisen auf den nicht
-  vorhandenen Ordner `static/images/games/`; passende Dateien liegen unter
-  `static/images/landingpage/`.
-- Der Garten-Teaser der Landingpage verwendet für sein Bild `src="#"`. Die
-  interne Garten-Seite bindet dagegen `static/images/garden_visual.png` ein.
-- Das aktuelle Bild für Alltags-Reihenfolge zeigt ein altes Radio und passt
-  inhaltlich noch nicht zum neuen Reihenfolge-Konzept.
-- Einstellungen hat weder Route noch Template; Hilfe, Datenschutz, Impressum
-  und Kontakt ebenfalls nicht.
-- Benutzerkonten, Authentifizierung, Datenmodelle, Datenbank und dauerhafte
-  Speicherung fehlen.
-- Automatisierte Tests sind nicht vorhanden.
-
-## Nächste Entwicklungsphase
-
-Der nächste große Schritt ist die noch offene Frontend-Funktionalität für
-Kartenpaare, Augenblick und Alltags-Reihenfolge: echte Spielzustände, Eingaben,
-Auswertung, Rundenwechsel und Feedback. Danach können Merk-Mix und die weiteren
-Spiele an Garten und Fortschritt angebunden werden. Dauerhafte Speicherung und
-Konten setzen eine spätere Backend- und Datenbankschicht voraus.
+- vollständige JavaScript-Spiellogik für Kartenpaare, einschließlich Aufdecken,
+  Mischen und Paarprüfung
+- vollständige JavaScript-Spiellogik für Augenblick, einschließlich
+  Bildauswahl, Antwortprüfung und Schwierigkeitssteigerung
+- vollständige JavaScript-Spiellogik für Alltags-Reihenfolge, einschließlich
+  Umordnen und Auswertung
+- Backend-Persistenz und dauerhafte Speicherung von Spielständen und
+  Ergebnissen
+- Datenbank und Datenmodelle
+- Benutzerkonten und Authentifizierung
+- dynamische Fortschrittsdaten statt der aktuellen Platzhalterwerte
+- Anbindung der Spiele an Gartenwachstum und Freischaltungen
+- funktionierende Vorlesen-, Pause- und Textgrößen-Bedienung
+- responsive und weiterführende barrierearme Ausarbeitung
+- automatisierte Tests
+- fehlende Routen für Einstellungen, Hilfe, Anmeldung, Registrierung,
+  Datenschutz, Impressum und Kontakt sowie weitere Platzhalterlinks
+- Korrektur der noch unvollständigen Bildverweise auf der Landingpage
 
 ## Aktuelle Routen
 
