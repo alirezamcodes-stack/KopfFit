@@ -1,41 +1,34 @@
 :root {
-    /* Brand */
-    --color-primary: #315b38;
-    --color-primary-hover: #25472b;
-    --color-primary-light: #e8efe3;
+  /* Brand */
+  --color-primary: #315b38;
+  --color-primary-hover: #25472b;
+  --color-primary-light: #e8efe3;
 
-    /* Text */
-    --color-heading: #173b57;
-    --color-text: #1f2933;
-    --color-text-light: #53616c;
+  /* Text */
+  --color-heading: #173b57;
+  --color-text: #1f2933;
+  --color-text-light: #53616c;
 
-    /* Background */
-    --color-background: #fbf7ef;
-    --color-surface: #ffffff;
-    --color-border: #d5d9cf;
+  /* Background */
+  --color-background: #fbf7ef;
+  --color-surface: #ffffff;
+  --color-border: #d5d9cf;
 
-    /* Accent */
-    --color-accent: #a84f16;
+  /* Accent */
+  --color-accent: #a84f16;
 
-    /* Feedback */
-    --color-success: #3e6b57;
-    --color-danger: #b33d35;
+  /* Feedback */
+  --color-success: #3e6b57;
+  --color-danger: #b33d35;
 
-    /* Utility */
-    --color-white: #ffffff;
-    --color-focus: #173b57;
+  /* Utility */
+  --color-white: #ffffff;
+  --color-focus: #173b57;
 }
 
-/* Typography & sizing
+/* Typography and sizing
    html font-size: 62.5%
    1rem = 10px
-   Examples:
-   1.6rem = 16px
-   2rem   = 20px
-   2.4rem = 24px
-   3rem   = 30px
-   3.2rem = 32px
-   4rem   = 40px
 */
 
 /* Reset */
@@ -43,24 +36,22 @@
 *,
 *::before,
 *::after {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 html {
-    font-size: 62.5%;
+  font-size: 62.5%;
 }
 
 body {
-    min-height: 100vh;
-
-    font-family: system-ui, "Segoe UI", Arial, sans-serif;
-    font-size: 2rem;
-    line-height: 1.6;
-
-    background-color: var(--color-background);
-    color: var(--color-text);
+  min-height: 100vh;
+  font-family: system-ui, "Segoe UI", Arial, sans-serif;
+  font-size: 2rem;
+  line-height: 1.6;
+  background-color: var(--color-background);
+  color: var(--color-text);
 }
 
 /* Typography */
@@ -68,28 +59,28 @@ body {
 h1,
 h2,
 h3 {
-    color: var(--color-heading);
-    line-height: 1.15;
+  color: var(--color-heading);
+  line-height: 1.15;
 }
 
 h1 {
-    font-size: clamp(4.4rem, 5vw, 6.8rem);
+  font-size: clamp(4.4rem, 5vw, 6.8rem);
 }
 
 h2 {
-    font-size: clamp(3.6rem, 4vw, 4.8rem);
+  font-size: clamp(3.6rem, 4vw, 4.8rem);
 }
 
 h3 {
-    font-size: 2.8rem;
+  font-size: 2.8rem;
 }
 
 /* Media */
 
 img {
-    display: block;
-    max-width: 100%;
-    height: auto;
+  display: block;
+  max-width: 100%;
+  height: auto;
 }
 
 /* Form elements */
@@ -98,513 +89,517 @@ button,
 input,
 select,
 textarea {
-    font: inherit;
+  font: inherit;
+}
+
+button {
+  padding: 1rem;
+  border: 1px solid var(--color-border);
+  border-radius: 0.8rem;
+  background-color: var(--color-surface);
+  cursor: pointer;
 }
 
 /* Accessibility */
 
-:focus-visible {
-    outline: 3px solid var(--color-focus);
-    outline-offset: 4px;
+[hidden] {
+  display: none !important;
 }
 
-/* Navigation------------------------------------------ */
+:focus-visible {
+  outline: 3px solid var(--color-focus);
+  outline-offset: 4px;
+}
+
+/* Navigation */
+
 .main-header nav {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 140rem;
-    margin: 0 auto;
-    padding: 1.6rem 3.2rem;
-    background-color: var(--color-background);
-    border-bottom: 1px solid var(--color-border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 1.6rem 3.2rem;
+  background-color: var(--color-background);
+  border-bottom: 1px solid var(--color-border);
 }
 
 .nav-links {
-    list-style: none;
-    display: flex;
-    gap: 3rem;
+  display: flex;
+  gap: 3rem;
+  list-style: none;
 }
 
 .nav-links a {
-    text-decoration: none;
-    color: var(--color-heading);
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 .nav-links a:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
 .logo {
-    display: inline-flex;
-    align-items: center;
-    gap: 1rem;
-    text-decoration: none;
-    color: var(--color-heading);
+  display: inline-flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 .logo img {
-    width: 5.2rem;
-    height: 5.2rem;
-    object-fit: contain;
+  width: 5.2rem;
+  height: 5.2rem;
+  object-fit: contain;
 }
 
 .nav-actions {
-    display: flex;
-    gap: 1.5rem;
-    align-items: center;
-    color: var(--color-heading);
+  display: flex;
+  align-items: center;
+  gap: 1.5rem;
+  color: var(--color-heading);
 }
 
 .nav-actions a {
-    text-decoration: none;
+  text-decoration: none;
 }
 
 .login-link {
-    text-decoration: none;
-    color: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    padding: 1rem 2rem;
+  padding: 1rem 2rem;
+  border: 2px solid var(--color-primary);
+  text-decoration: none;
+  color: var(--color-primary);
 }
 
 .login-link:hover {
-    background-color: var(--color-primary);
-    color: var(--color-white);
+  background-color: var(--color-primary);
+  color: var(--color-white);
 }
 
 .text-size-button {
-    text-decoration: none;
-    color: var(--color-heading);
-    border: none;
-    background: transparent;
-    padding: 1rem 1.5rem;
-    cursor: pointer;
+  padding: 1rem 1.5rem;
+  border: none;
+  background: transparent;
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 .text-size-button:hover {
-    color: var(--color-primary);
+  color: var(--color-primary);
 }
 
-/* Hero------------------------------------------ */
+/* Hero */
 
 .hero {
-    padding: 8rem 0;
+  padding: 8rem 0;
 }
 
 .hero-content {
-    max-width: 140rem;
-    margin: 0 auto;
-    padding: 0 3.2rem;
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    align-items: center;
-    gap: 6rem;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 6rem;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 0 3.2rem;
 }
 
 .hero-eyebrow {
-    color: var(--color-primary);
-    font-size: 1.6rem;
-    font-weight: 700;
-    letter-spacing: 0.08rem;
-    margin-bottom: 1.6rem;
+  margin-bottom: 1.6rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+  letter-spacing: 0.08rem;
+  color: var(--color-primary);
 }
 
 .hero-image {
-    width: 100%;
-    max-width: 55rem;
-    height: auto;
+  width: 100%;
+  max-width: 55rem;
+  height: auto;
 }
 
-/*  SO EINFACH GEHT'S------------------------------------------ */
-
-.funktioniert h2 {
-    margin-bottom: 4rem;
-}
+/* So einfach geht's */
 
 .funktioniert {
-    padding: 8rem 3.2rem;
-    max-width: 140rem;
-    margin: 0 auto;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 8rem 3.2rem;
+}
+
+.funktioniert h2 {
+  margin-bottom: 4rem;
 }
 
 .funktioniert-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
 }
 
 .funktioniert-grid article {
-    padding: 3.2rem;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1.2rem;
+  padding: 3.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.2rem;
+  background-color: var(--color-surface);
 }
 
-/*  spiele------------------------------------------ */
-
-.spiele h2 {
-    margin-bottom: 4rem;
-}
+/* Spiele */
 
 .spiele {
-    padding: 8rem 3.2rem;
-    max-width: 140rem;
-    margin: 0 auto;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 8rem 3.2rem;
+}
+
+.spiele h2 {
+  margin-bottom: 4rem;
 }
 
 .spiele-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 2.4rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 2.4rem;
 }
 
 .spiele-grid article {
-    padding: 3.2rem;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1.2rem;
+  padding: 3.2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.2rem;
+  background-color: var(--color-surface);
 }
 
-/*  garden------------------------------------------ */
+/* Garden section */
 
 .garden-section {
-    padding: 8rem 3.2rem;
-    max-width: 140rem;
-    margin: 0 auto;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 8rem 3.2rem;
 }
 
-/*  ACCESSIBILITY------------------------------------------ */
+/* Accessibility section */
+
 .accessibility-section {
-    padding: 8rem 3.2rem;
-    max-width: 140rem;
-    margin: 0 auto;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 8rem 3.2rem;
 }
 
 .accessibility-section h2 {
-    margin-bottom: 4rem;
+  margin-bottom: 4rem;
 }
 
 .accessibility-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.4rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
 }
 
-/*  FINAL CTA------------------------------------------ */
+/* Final CTA */
 
 .final-cta {
-    padding: 8rem 3.2rem;
-    max-width: 140rem;
-    margin: 0 auto;
+  max-width: 140rem;
+  margin: 0 auto;
+  padding: 8rem 3.2rem;
 }
 
-/*  footer------------------------------------------ */
+/* Footer */
 
 .site-footer {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 4rem 3.2rem;
-    background-color: var(--color-background);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4rem 3.2rem;
+  background-color: var(--color-background);
 }
 
 .site-footer nav ul {
-    display: flex;
-    list-style: none;
-    gap: 2rem;
+  display: flex;
+  gap: 2rem;
+  list-style: none;
 }
 
 .site-footer nav a {
-    text-decoration: none;
-    font-size: 1.8rem;
-    font-weight: 500;
-    color: var(--color-heading);
+  font-size: 1.8rem;
+  font-weight: 500;
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 .site-footer .logo {
-    font-size: 2.4rem;
-    font-weight: 700;
+  font-size: 2.4rem;
+  font-weight: 700;
 }
 
 .site-footer .logo img {
-    width: 4.4rem;
-    height: 4.4rem;
+  width: 4.4rem;
+  height: 4.4rem;
 }
 
-/* App Layout -------------------------------- */
+/* App layout */
+
 .app-layout {
-    display: flex;
-    min-height: 100vh;
+  display: flex;
+  min-height: 100vh;
 }
 
 .sidebar {
-    width: 26rem;
-    padding: 3.2rem 2.4rem;
-    background-color: var(--color-surface);
+  width: 26rem;
+  padding: 3.2rem 2.4rem;
+  background-color: var(--color-surface);
 }
 
 .app-main {
-    flex: 1;
+  flex: 1;
 }
 
 .sidebar-logo {
-    display: flex;
-    align-items: center;
-    gap: 1rem;
-
-    text-decoration: none;
-    color: var(--color-heading);
-
-    font-size: 2.6rem;
-    font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2.6rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 .sidebar-logo img {
-    width: 5rem;
-    height: 5rem;
-    object-fit: contain;
+  width: 5rem;
+  height: 5rem;
+  object-fit: contain;
 }
 
 .sidebar-nav a {
-    text-decoration: none;
-    color: var(--color-heading);
+  text-decoration: none;
+  color: var(--color-heading);
 }
 
 .sidebar-nav ul {
-    list-style: none;
-    gap: 3rem;
+  gap: 3rem;
+  list-style: none;
 }
 
 .games-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.4rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
 }
 
-/* kartenpaare -------------------------------- */
+/* Game pages */
 
 .game-page {
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: 4rem;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem;
 }
 
 .game-header {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .game-controls {
-    display: flex;
-    gap: 1.6rem;
-    margin-bottom: 3rem;
+  display: flex;
+  gap: 1.6rem;
+  margin-bottom: 3rem;
 }
 
+/* Kartenpaare */
+
 .game-content {
-    display: grid;
-    grid-template-columns: 28rem 1fr;
-    gap: 3rem;
-    align-items: start;
+  display: grid;
+  grid-template-columns: 28rem 1fr;
+  gap: 3rem;
+  align-items: start;
 }
 
 .game-instructions {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-
-    padding: 2rem;
-    background-color: var(--color-background);
-    border: 1px solid var(--color-border);
-    border-radius: 1.6rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+  background-color: var(--color-background);
 }
 
 .game-instructions h2 {
-    font-size: 3rem;
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
+  font-size: 3rem;
 }
 
 .memory-board {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
-    gap: 3rem;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(3, 1fr);
+  gap: 3rem;
 }
 
 .memory-card {
-    min-height: 13rem;
+  min-height: 13rem;
 }
 
-/* Merk-Mix -------------------------------- */
-/* Merk-Mix -------------------------------- */
+/* Merk-Mix */
 
 .memory-items,
 .answer-items {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 2.4rem;
-    margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2.4rem;
+  margin-bottom: 3rem;
 }
 
 .memory-item,
 .answer-item {
-    min-height: 14rem;
-    padding: 2rem;
-
-    border: 1px solid var(--color-border);
-    border-radius: 1.6rem;
-
-    background-color: var(--color-background);
+  min-height: 14rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+  background-color: var(--color-background);
 }
 
 .answer-item {
-    cursor: pointer;
-    font: inherit;
-
-    transition: 0.2s;
+  transition: 0.2s;
 }
 
 .memory-item-image,
 .answer-item-image {
-    width: 100%;
-    height: 12rem;
-    object-fit: contain;
+  width: 100%;
+  height: 12rem;
+  object-fit: contain;
 }
 
-/* Selected answer */
+.difficulty-button.selected,
 .answer-item.selected {
-    border: 3px solid var(--color-primary);
-    transform: scale(1.05);
+  border: 3px solid var(--color-primary);
 }
 
-/* Correct answer */
+.difficulty-button.selected {
+  font-weight: 700;
+}
+
+.answer-item.selected {
+  transform: scale(1.05);
+}
+
 .answer-item.correct {
-    border: 3px solid var(--color-success);
+  border: 3px solid var(--color-success);
 }
 
-/* Wrong answer */
 .answer-item.wrong {
-    border: 3px solid var(--color-danger);
+  border: 3px solid var(--color-danger);
 }
 
-/* Result text */
 .result-message {
-    margin-bottom: 2rem;
-    font-weight: 600;
+  margin-bottom: 2rem;
+  font-weight: 600;
 }
 
-/* augenblick-------------------------------- */
+/* Augenblick */
 
 .difference-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.4rem;
-    margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+  margin-bottom: 3rem;
 }
 
 .difference-card {
-    border: 1px solid var(--color-border);
-    background-color: var(--color-background);
-    min-height: 14rem;
-    padding: 2rem;
-    border-radius: 1.6rem;
+  min-height: 14rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+  background-color: var(--color-background);
 }
 
-/* Alltags-Reihenfolge -------------------------------- */
+/* Alltags-Reihenfolge */
 
 .sequence-list {
-    display: grid;
-    gap: 2.4rem;
-    margin-bottom: 3rem;
+  display: grid;
+  gap: 2.4rem;
+  margin-bottom: 3rem;
 }
 
-
-/* Garten -------------------------------- */
-
+/* Garten */
 
 .garden-info {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.4rem;
-    margin-bottom: 3rem;
-
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+  margin-bottom: 3rem;
 }
 
 .info-card {
-    min-height: 12rem;
-    padding: 2rem;
-    border: 1px solid var(--color-border);
-    border-radius: 1.6rem;
-    background-color: var(--color-background);
+  min-height: 12rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+  background-color: var(--color-background);
 }
 
 .garden-content {
-    display: grid;
-    grid-template-columns: 2fr 1fr;
-    gap: 2.4rem;
-    margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2.4rem;
+  margin-bottom: 3rem;
 }
 
 .garden-visual img {
-    width: 100%;
-    border-radius: 1.6rem;
+  width: 100%;
+  border-radius: 1.6rem;
 }
 
-
-/* Fortschritt -------------------------------- */
-
-
-/* Fortschritt -------------------------------- */
+/* Fortschritt */
 
 .progress-page {
-    max-width: 120rem;
-    margin: 0 auto;
-    padding: 4rem;
+  max-width: 120rem;
+  margin: 0 auto;
+  padding: 4rem;
 }
 
 .progress-header {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .progress-stats {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 2.4rem;
-    margin-bottom: 3rem;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2.4rem;
+  margin-bottom: 3rem;
 }
 
 .stat-card {
-    padding: 2.4rem;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1.6rem;
+  padding: 2.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+  background-color: var(--color-surface);
 }
 
 .stat-number {
-    display: block;
-    font-size: 4rem;
-    font-weight: 700;
-    color: var(--color-heading);
+  display: block;
+  font-size: 4rem;
+  font-weight: 700;
+  color: var(--color-heading);
 }
 
 .recent-activities {
-    margin-bottom: 3rem;
+  margin-bottom: 3rem;
 }
 
 .activity-list {
-    display: grid;
-    gap: 1.6rem;
+  display: grid;
+  gap: 1.6rem;
 }
 
 .activity-item {
-    padding: 2rem;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1.2rem;
+  padding: 2rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.2rem;
+  background-color: var(--color-surface);
 }
 
 .progress-cta {
-    padding: 2.4rem;
-    background-color: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: 1.6rem;
+  padding: 2.4rem;
+  border: 1px solid var(--color-border);
+  border-radius: 1.6rem;
+  background-color: var(--color-surface);
 }
